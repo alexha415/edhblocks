@@ -23,6 +23,8 @@ body{
   display: flex;
   flex-direction: row;
   padding-top: 1.2rem;
+  background-image: linear-gradient(to top right, lightgrey, white);
+  border-bottom: .1rem solid black;
 }
 
 .search-bar{
