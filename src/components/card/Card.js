@@ -11,7 +11,6 @@ const Card = ({ card }) => {
   
   return (
     <div className='card'>
-      <p className='card-name'>{name}</p>
       <a href="#">
         <img className='card-img' src={image} alt="Card Loading..."/>
       </a>
