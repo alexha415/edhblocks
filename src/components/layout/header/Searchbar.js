@@ -1,9 +1,11 @@
 import React,{useEffect, useState, Fragment} from 'react'
 
-const Searchbar = () => {
+import {connect} from 'react-redux';
+import {searchCards} from '../../../actions/cardActions';
+
+const Searchbar = ({ searchCards }) => {
 
   const [text, setText] = useState('');
-  const [cards, setCards] = useState([]);
 
   const onChange = (e) => {
     e.preventDefault();
@@ -11,23 +13,10 @@ const Searchbar = () => {
   }
   const onSubmit = async (e) => {
     e.preventDefault();
-    fetchCards();
+    searchCards(text);
     setText('');
   }
 
-  useEffect( () => {
-    console.log(cards);
-  },[cards]);
-  const search_root = 'https://api.scryfall.com/cards/search';
-  const fetchCards = async () => { 
-    try {
-      const res = await fetch(`${search_root}?q=${text}`);
-      const data = await res.json();
-      setCards(data.data);
-    } catch (error) {
-      console.log(error);
-    }
-   }
 
   return (
     <Fragment>
@@ -45,4 +34,4 @@ const Searchbar = () => {
   )
 }
 
-export default Searchbar
+export default connect(null, {searchCards})(Searchbar)
