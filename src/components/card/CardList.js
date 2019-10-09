@@ -11,7 +11,7 @@ const CardList = () => {
 
   const fetchCards = async () => { 
     try {
-      const res = await fetch(`${search_root}?q=eternal`);
+      const res = await fetch(`${search_root}?q=gingerbrute`);
       const data = await res.json();
       setCards(data.data);
     } catch (error) {
