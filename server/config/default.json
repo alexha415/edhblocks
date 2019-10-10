@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://almondjoys:icecream@edhblocks-tkhj2.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://almondjoys:icecream@edhblocks-tkhj2.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "1029384756"
 }
