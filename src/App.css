@@ -99,3 +99,7 @@ li.nav-bar-item{
     opacity: 1;
   }
 }
+
+.decklist{
+  align-self: flex-end;
+}

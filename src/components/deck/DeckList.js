@@ -10,7 +10,10 @@ const DeckList = ({deck:{deckList}, clearDeck}) => {
     clearDeck();
   }
   return (
-    <div>
+    <div className = 'decklist'>
+      {deckList.map(card => (
+        <div>{card.name}</div>
+      ))}
       <a href="#" onClick={onClick}>
         CLEAR DECK
       </a>

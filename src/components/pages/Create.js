@@ -5,12 +5,12 @@ import DeckList from '../deck/DeckList';
 const Create = () => {
   return (
     <div className="flex-container-col create">
+    <DeckList/>
     <h4 className='create-title'>Create Deck</h4>
       <div className='search-bar'>
         <Searchbar className='search-bar'/>
       </div>
       <CardList/>
-      <DeckList/>
     </div>
   )
 }
