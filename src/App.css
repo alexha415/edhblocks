@@ -19,12 +19,18 @@ body{
   padding: 0px;
 }
 
-.header{
+.flex-container-row{
   display: flex;
   flex-direction: row;
+}
+.flex-container-col{
+  display: flex;
+  flex-direction: column;
+}
+.header{
   padding-top: 1.2rem;
+  padding-bottom: .6rem;
   background-image: linear-gradient(to top right, lightgrey, white);
-  border-bottom: .1rem solid black;
 }
 
 .search-bar{
@@ -32,12 +38,16 @@ body{
   width: 50%;
 }
 
-.nav-bar{
+ul.nav-bar{
   font-size: 2rem;
   list-style-type: none;
   margin-bottom: 0px;
   margin-left: auto;
   padding-right: 1rem;
+}
+li.nav-bar-item{
+  display: inline-block;
+  margin-right: 1rem;
 }
 .nav-bar-link:hover{
   text-decoration: none;
@@ -69,5 +79,23 @@ body{
 @media screen and (max-width: 320px){
   .container{
     grid-template-columns: repeat(1,1fr);
+  }
+}
+
+.create{
+  align-items: center;
+  margin-top: 5rem;
+}
+.create-title{
+  font-size: 5rem;
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
   }
 }
