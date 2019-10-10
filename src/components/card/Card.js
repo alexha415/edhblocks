@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react'
+import {addCard} from '../../actions/deckActions';
+import {connect} from 'react-redux';
 
-const Card = ({ card }) => {
+const Card = ({ card, addCard }) => {
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
 
@@ -19,13 +21,20 @@ const Card = ({ card }) => {
     }
   },[])
   
+  const onClick = (e) => {
+    e.preventDefault()
+    addCard({
+      name,
+      image
+    });
+  }
   return (
     <div className='card'>
-      <a href="#">
+      <a href="#" onClick={onClick}>
         <img className='card-img' src={image} alt="Card Loading..."/>
       </a>
     </div>
   )
 }
 
-export default Card
+export default connect(null,{addCard})(Card)

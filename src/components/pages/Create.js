@@ -1,7 +1,7 @@
 import React from 'react'
 import CardList from '../card/CardList';
 import Searchbar from'../layout/header/Searchbar';
-
+import DeckList from '../deck/DeckList';
 const Create = () => {
   return (
     <div className="flex-container-col create">
@@ -10,6 +10,7 @@ const Create = () => {
         <Searchbar className='search-bar'/>
       </div>
       <CardList/>
+      <DeckList/>
     </div>
   )
 }
