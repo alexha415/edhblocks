@@ -5,8 +5,18 @@ const Card = ({ card }) => {
   const [image, setImage] = useState('');
 
   useEffect( () => {
-    setName(card.name)
-    setImage(card.image_uris.normal);
+    
+    try {
+      setName(card.name)
+      if(card.card_faces){
+        setImage(card.card_faces[0].image_uris.normal);
+      }else{
+        setImage(card.image_uris.normal);
+      }
+      
+    } catch (error) {
+      console.error(card);
+    }
   },[])
   
   return (
