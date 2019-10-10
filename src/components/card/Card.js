@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {addCard} from '../../actions/deckActions';
 import {connect} from 'react-redux';
 
-const Card = ({ card, addCard }) => {
+const Card = ({ card, addCard}) => {
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
 

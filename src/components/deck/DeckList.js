@@ -4,7 +4,6 @@ import {clearDeck} from '../../actions/deckActions';
 
 const DeckList = ({deck:{deckList}, clearDeck}) => {
 
-  console.log(deckList);
 
   const onClick = (e) => {
     e.preventDefault();

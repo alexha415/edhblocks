@@ -1,6 +1,7 @@
 import {
     GET_CARDS,
-    SEARCH_CARDS
+    SEARCH_CARDS,
+    FILTER_CARDS
 } from './types';
 
 export const searchCards = (query) => async dispatch => {
@@ -22,6 +23,17 @@ export const getCards = () => async dispatch => {
     try {
         dispatch({
             type: GET_CARDS
+        })
+    } catch (error) {
+        
+    }
+}
+
+export const filterCards = (cards) => async dispatch => {
+    try {
+        dispatch({
+            type: FILTER_CARDS,
+            payload: cards
         })
     } catch (error) {
         

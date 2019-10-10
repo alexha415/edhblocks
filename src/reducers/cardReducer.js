@@ -1,12 +1,15 @@
 import { 
-    SEARCH_CARDS, 
-    GET_CARDS } from "../actions/types"
+SEARCH_CARDS, 
+GET_CARDS,
+FILTER_CARDS
+ } from "../actions/types"
 
 const initialState = {
     cards: {},
     current: null,
     loading: false,
-    error: null
+    error: null,
+    filtered: null
 }
 
 export default (state = initialState, action) => {
@@ -19,9 +22,12 @@ export default (state = initialState, action) => {
                 loading: false,
                 error: null
             }
-        case GET_CARDS: 
+        case FILTER_CARDS: 
             return{
-                
+                ...state,
+                filtered: state.cards.filter(searchCard => (
+                    !action.payload.find(card => searchCard.name === card.name)
+                )),
             }
         default : 
             return{

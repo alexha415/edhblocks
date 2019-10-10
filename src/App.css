@@ -88,7 +88,7 @@ li.nav-bar-item{
 }
 .create-title{
   font-size: 5rem;
-  animation: fadeIn 1s;
+  animation: fadeIn 3s;
 }
 
 @keyframes fadeIn{
