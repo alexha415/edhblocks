@@ -15,7 +15,6 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type){
         case SEARCH_CARDS :
-            console.log(action.payload)
             return {
                 ...state,
                 cards: action.payload,

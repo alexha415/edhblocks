@@ -5,11 +5,16 @@ import {connect} from 'react-redux';
 const Card = ({ card, addCard}) => {
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
+  const [cmc, setCmc] = useState('');
+  const [id, setId] = useState('');
+  const [colorId, setColorId] = useState('');
 
   useEffect( () => {
-    
     try {
-      setName(card.name)
+      setName(card.name);
+      setCmc(card.cmc);
+      setId(card.id);
+      setColorId(card.colorId);
       if(card.card_faces){
         setImage(card.card_faces[0].image_uris.normal);
       }else{
@@ -25,7 +30,10 @@ const Card = ({ card, addCard}) => {
     e.preventDefault()
     addCard({
       name,
-      image
+      id,
+      image,
+      cmc,
+      colorId
     });
   }
   return (

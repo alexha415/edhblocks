@@ -1,20 +1,24 @@
 import React from 'react'
 import {connect} from 'react-redux';
-import {clearDeck} from '../../actions/deckActions';
+import {clearDeck, deleteCard} from '../../actions/deckActions';
 import DeckItem from './DeckItem';
 
-const DeckList = ({deck:{deckList}, clearDeck}) => {
+const DeckList = ({deck:{deckList}, clearDeck,deleteCard}) => {
 
 
   const onClick = (e) => {
     e.preventDefault();
     clearDeck();
   }
+
+  const onDelete = (e) => {
+    
+  }
   return (
     <div className = 'flex-container-col deck-container'>
       <div className="deck-list">
         {deckList.map(card => (
-          <p key={card.name} className='deck-item'>{card.name}</p>
+          <DeckItem key={card.name} card={card}/>
         ))}
       </div>
       <a href="#" className="btn clear-deck-btn"onClick={onClick}>
@@ -27,4 +31,4 @@ const DeckList = ({deck:{deckList}, clearDeck}) => {
 const mapStateToProps = (state) => ({
   deck: state.deck
 })
-export default connect(mapStateToProps, {clearDeck})(DeckList)
+export default connect(mapStateToProps, {clearDeck,deleteCard})(DeckList)
