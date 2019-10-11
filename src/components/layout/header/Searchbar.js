@@ -23,7 +23,7 @@ const Searchbar = ({ searchCards }) => {
   }
   return (
     <Fragment>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} style ={{width: '100%'}}>
         <div className="input-group">   
           <input type="text" className='form-control' value={text} for='text' placeholder='Search...' name='text' onChange={onChange}/>
           <div className="input-group-append">

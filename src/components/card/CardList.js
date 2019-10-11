@@ -7,13 +7,13 @@ const CardList = ({card: {cards, filtered}, deck: {deckList}, filterCards}) => {
 
   useEffect( () => {
     filterCards(deckList);
-  }, [deckList]);
+  }, [deckList, cards]);
 
   let showCards;
   filtered ? showCards = filtered : showCards = cards
   
   return (
-  <div className='container'>
+  <div className='container card-list-container'>
     {showCards && showCards.length > 0 && showCards.map(card => {
       return <Card key={card.id} card={card}/>
     })}

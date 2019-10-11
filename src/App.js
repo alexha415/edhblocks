@@ -13,7 +13,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <div className="App">
+        <div className="App flex-container-col">
           <Header/>
           <Switch>
             <Route exact path='/' component={Home}></Route>

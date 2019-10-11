@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux';
 import {clearDeck} from '../../actions/deckActions';
+import DeckItem from './DeckItem';
 
 const DeckList = ({deck:{deckList}, clearDeck}) => {
 
@@ -10,11 +11,13 @@ const DeckList = ({deck:{deckList}, clearDeck}) => {
     clearDeck();
   }
   return (
-    <div className = 'decklist'>
-      {deckList.map(card => (
-        <div>{card.name}</div>
-      ))}
-      <a href="#" onClick={onClick}>
+    <div className = 'flex-container-col deck-container'>
+      <div className="deck-list">
+        {deckList.map(card => (
+          <p key={card.name} className='deck-item'>{card.name}</p>
+        ))}
+      </div>
+      <a href="#" className="btn clear-deck-btn"onClick={onClick}>
         CLEAR DECK
       </a>
     </div>
