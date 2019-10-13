@@ -29,9 +29,16 @@ export const searchCards = (query) => async dispatch => {
             
         }
 }
-export const searchCommander = (query, colorId) => async dispatch => {
-    try{
-        const res = await fetch(`${search_root}?q=${query}+is%3Acommander+identity%3A${colorId}`)
+export const searchCommander = (query) => async dispatch => {
+    let queryString = '';
+    Object.keys(query).forEach( key => {
+        if(queryString !== ''){
+            queryString += '+';
+        }
+        queryString += `${key}${query[key]}`
+    })
+    try {
+        const res = await fetch(`${search_root}?${queryString}`);
         const data = await res.json();
         dispatch({
             type: SEARCH_COMMANDER,

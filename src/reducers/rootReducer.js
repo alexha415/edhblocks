@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import cardReducer from './cardReducer';
+import searchReducer from './searchReducer';
 import deckReducer from './deckReducer';
 
 export default combineReducers({
-    card: cardReducer,
+    search: searchReducer,
     deck: deckReducer
 });

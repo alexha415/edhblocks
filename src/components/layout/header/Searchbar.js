@@ -1,7 +1,7 @@
 import React,{useState, Fragment} from 'react'
 
 import {connect} from 'react-redux';
-import {searchCards} from '../../../actions/cardActions';
+import {searchCards} from '../../../actions/searchActions';
 
 const Searchbar = ({ searchCards }) => {
 

@@ -5,8 +5,8 @@ SEARCH_COMMANDER
  } from "../actions/types"
 
 const initialState = {
-    cards: {},
-    commanders: {},
+    cards: null,
+    commanders: null,
     current: null,
     loading: false,
     error: null,
@@ -28,6 +28,8 @@ export default (state = initialState, action) => {
                 filtered: state.cards.filter(searchCard => (
                     !action.payload.find(card => searchCard.name === card.name)
                 )),
+                loading: false,
+                error: null
             }
         case SEARCH_COMMANDER:
             return {

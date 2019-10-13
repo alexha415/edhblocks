@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {clearDeck, deleteCard} from '../../actions/deckActions';
 import DeckItem from './DeckItem';
 
-const DeckList = ({deck:{deckList,commander}, clearDeck,deleteCard}) => {
+const DeckList = ({deck:{ deckList, commander }, clearDeck,deleteCard}) => {
 
 
   const onClick = (e) => {
@@ -14,9 +14,9 @@ const DeckList = ({deck:{deckList,commander}, clearDeck,deleteCard}) => {
   return (
     <div className = 'flex-container-col deck-container'>
       <div className="deck-list">
-        {commander && <DeckItem key={commander.name} card={commander}/>}
+        {commander && (<h5>{commander.name}</h5>)}
         {deckList.map(card => (
-          <DeckItem key={card.name} card={card}/>
+          (commander && card.name !== commander.name) && <DeckItem key={card.name} card={card}/>
         ))}
       </div>
       <a href="#/" className="btn clear-deck-btn"onClick={onClick}>

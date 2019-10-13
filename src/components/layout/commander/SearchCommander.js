@@ -1,9 +1,8 @@
 import React,{useState, Fragment} from 'react'
 import {connect} from 'react-redux';
-import {searchCards} from '../../../actions/cardActions';
-import {addCommander} from '../../../actions/deckActions';
+import {searchCommander} from '../../../actions/searchActions';
 
-const SearchCommander = ({searchCards,addCommander}) => {
+const SearchCommander = ({searchCommander}) => {
   const [text, setText] = useState('');
   const [colorId, setColorId] = useState({
     W: false,
@@ -32,7 +31,7 @@ const SearchCommander = ({searchCards,addCommander}) => {
     if(colors !== ''){
       query.identity = `%3A${colors}`
     }
-    searchCards(query)
+    searchCommander(query)
     setText('');
     setColorId({
       W:false,
@@ -83,4 +82,4 @@ const SearchCommander = ({searchCards,addCommander}) => {
     </Fragment>
   )
 }
-export default connect(null, {searchCards,addCommander})(SearchCommander)
+export default connect(null, {searchCommander})(SearchCommander)
