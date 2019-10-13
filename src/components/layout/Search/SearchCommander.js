@@ -52,27 +52,27 @@ const SearchCommander = ({searchCards,addCommander}) => {
       <div className="flex-container-row">
             <div className='checkbox-container'>
                 <label htmlFor="W">White</label>
-                <input type="checkbox" name='W' checked = {colorId.W} onClick={changeColorId}/>
+                <input type="checkbox" name='W' checked = {colorId.W} onChange={changeColorId}/>
             </div>
             <div className='checkbox-container'>
                 <label htmlFor="U">Blue</label> 
-                <input type="checkbox" name='U' checked = {colorId.U} onClick={changeColorId}/>
+                <input type="checkbox" name='U' checked = {colorId.U} onChange={changeColorId}/>
             </div>
             <div className='checkbox-container'>
                 <label htmlFor="B">Black</label>
-                <input type="checkbox" name='B' checked = {colorId.B} onClick={changeColorId}/>
+                <input type="checkbox" name='B' checked = {colorId.B} onChange={changeColorId}/>
             </div>
             <div className='checkbox-container'>
                 <label htmlFor="R">Red</label>
-                <input type="checkbox" name='R' checked = {colorId.R} onClick={changeColorId}/>
+                <input type="checkbox" name='R' checked = {colorId.R} onChange={changeColorId}/>
             </div>
             <div className='checkbox-container'>
                 <label htmlFor="G">Green</label>
-                <input type="checkbox" name='G' checked = {colorId.G} onClick={changeColorId}/>
+                <input type="checkbox" name='G' checked = {colorId.G} onChange={changeColorId}/>
             </div>
         </div>
         <div className="input-group">   
-          <input type="text" className='form-control' value={text} for='text' placeholder='Search for a Commander...' name='text' onChange={onChange}/>
+          <input type="text" className='form-control' value={text} htmlFor='text' placeholder='Search for a Commander...' name='text' onChange={onChange}/>
           <div className="input-group-append">
             <a href="#/" className='btn btn-outline-secondary' onClick={onSubmit}>
               <i className='fa fa-search' style={{height: '100%'}}></i>
