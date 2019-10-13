@@ -1,6 +1,5 @@
 import { 
-SEARCH_CARDS, 
-GET_CARDS,
+SEARCH_CARDS,
 FILTER_CARDS,
 SEARCH_COMMANDER
  } from "../actions/types"

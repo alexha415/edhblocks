@@ -6,3 +6,4 @@ export const SEARCH_COMMANDER = 'SEARCH_COMMANDER';
 export const ADD_CARD = 'ADD_CARD';
 export const DELETE_CARD = 'DELETE_CARD';
 export const CLEAR_DECK = 'CLEAR_DECK';
+export const ADD_COMMANDER = 'ADD_COMMANDER';

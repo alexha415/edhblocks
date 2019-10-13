@@ -9,17 +9,25 @@ const search_root = 'https://api.scryfall.com/cards/search';
 /*const searchCommanderString = `${search_root}?q=${query}+identity%3A${colorIdentity}+identity>colorless+is%3Acommander`;*/
 //colorIdenty: Commander color identity
 //query: string to search with
+
 export const searchCards = (query) => async dispatch => {
-       try {
-        const res = await fetch(`${search_root}?q=${query}+identity%3AR+identity>colorless+is%3Acommander`);
-        const data = await res.json();
-        dispatch({
-            type: SEARCH_CARDS,
-            payload: data.data
+        let queryString = '';
+        Object.keys(query).forEach( key => {
+            if(queryString !== ''){
+                queryString += '+';
+            }
+            queryString += `${key}${query[key]}`
         })
-       } catch (error) {
-           
-       }
+        try {
+            const res = await fetch(`${search_root}?${queryString}`);
+            const data = await res.json();
+            dispatch({
+                type: SEARCH_CARDS,
+                payload: data.data
+            })
+        } catch (error) {
+            
+        }
 }
 export const searchCommander = (query, colorId) => async dispatch => {
     try{

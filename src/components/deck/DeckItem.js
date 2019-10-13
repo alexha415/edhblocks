@@ -9,8 +9,8 @@ const DeckItem = ({card, deleteCard}) => {
     deleteCard(card);
   }
   return (
-    <div className='deck-item' onClick={onClick}>
-      <a href="#" className='btn'>
+    <div className='deck-item' >
+      <a href="#/" className='btn' onClick={onClick}>
         <p>
         {card.name}
         </p>

@@ -3,6 +3,7 @@ import {addCard} from '../../actions/deckActions';
 import {connect} from 'react-redux';
 
 const Card = ({ card, addCard}) => {
+
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
   const [cmc, setCmc] = useState('');
@@ -24,6 +25,7 @@ const Card = ({ card, addCard}) => {
     } catch (error) {
       console.error(card);
     }
+    //eslint-disable-next-line
   },[])
   
   const onClick = (e) => {
@@ -38,7 +40,7 @@ const Card = ({ card, addCard}) => {
   }
   return (
     <div className='card'>
-      <a href="#" onClick={onClick}>
+      <a href="#/" onClick={onClick}>
         <img className='card-img' src={image} alt="Card Loading..."/>
       </a>
     </div>

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import Card from './Card';
 import {connect} from 'react-redux';
 import {filterCards} from '../../actions/cardActions';
@@ -7,7 +7,7 @@ const CardList = ({card: {cards, filtered}, deck: {deckList}, filterCards}) => {
 
   useEffect( () => {
     filterCards(deckList);
-  }, [deckList, cards]);
+  }, [deckList, cards, filterCards]);
 
   let showCards;
   filtered ? showCards = filtered : showCards = cards

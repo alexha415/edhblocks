@@ -1,11 +1,12 @@
 import { 
   ADD_CARD,
   CLEAR_DECK,
-  DELETE_CARD
+  DELETE_CARD,
+  ADD_COMMANDER
 } from "../actions/types"
 
 const initialState = {
-  general: {},
+  commander: null,
   deckList: [],
   loading: false,
   error: null
@@ -14,7 +15,6 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type){
       case ADD_CARD :
-        console.log(action.payload);
         return {
             ...state,
             deckList: [...state.deckList, action.payload],
@@ -34,6 +34,11 @@ export default (state = initialState, action) => {
           deckList: state.deckList.filter(card => {
             return card.name !== action.payload.name
           })
+        }
+      case ADD_COMMANDER:
+        return{
+          ...state,
+          commander: action.payload
         }
       default : 
         return{
