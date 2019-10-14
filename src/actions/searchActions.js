@@ -2,7 +2,8 @@ import {
     GET_CARDS,
     SEARCH_CARDS,
     FILTER_CARDS,
-    SEARCH_COMMANDER
+    SEARCH_COMMANDER,
+    CLEAR_SEARCH
 } from './types';
 
 const search_root = 'https://api.scryfall.com/cards/search';
@@ -63,6 +64,16 @@ export const filterCards = (cards) => async dispatch => {
         dispatch({
             type: FILTER_CARDS,
             payload: cards
+        })
+    } catch (error) {
+        
+    }
+}
+
+export const clearSearch = () => async dispatch => {
+    try {
+        dispatch({
+            type: CLEAR_SEARCH
         })
     } catch (error) {
         

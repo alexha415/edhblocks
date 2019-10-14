@@ -1,8 +1,8 @@
 import React,{useState, Fragment} from 'react'
 import {connect} from 'react-redux';
-import {searchCommander} from '../../../actions/searchActions';
+import {searchCommander, clearSearch} from '../../../actions/searchActions';
 
-const SearchCommander = ({searchCommander}) => {
+const SearchCommander = ({searchCommander,clearSearch}) => {
   const [text, setText] = useState('');
   const [colorId, setColorId] = useState({
     W: false,
@@ -82,4 +82,4 @@ const SearchCommander = ({searchCommander}) => {
     </Fragment>
   )
 }
-export default connect(null, {searchCommander})(SearchCommander)
+export default connect(null, {searchCommander, clearSearch})(SearchCommander)

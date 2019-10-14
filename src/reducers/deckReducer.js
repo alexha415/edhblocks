@@ -9,7 +9,16 @@ const initialState = {
   commander: null,
   deckList: [],
   loading: false,
-  error: null
+  error: null,
+  categories: [
+    'Land',
+    'Enchantment',
+    'Artifact',
+    'Sorcery',
+    'Instant',
+    'Planeswalker',
+    'Creature'
+  ]
 }
 
 export default (state = initialState, action) => {

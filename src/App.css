@@ -21,7 +21,9 @@ html{
   margin: 0px;
   padding: 0px;
 }
-
+ul{
+  list-style-type: none;
+}
 .flex-container-row{
   display: flex;
   flex-direction: row;

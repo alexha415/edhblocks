@@ -7,6 +7,7 @@ import {Provider} from 'react-redux';
 
 import Home from './components/pages/Home';
 import Create from './components/pages/Create';
+import Deck from './components/pages/Deck';
 import Header from './components/layout/header/Header';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Header/>
           <Switch>
             <Route exact path='/' component={Home}></Route>
+            <Route exact path='/deck' component={Deck}></Route>
             <Route exact path='/create' component={Create}></Route>
           </Switch>
         </div>

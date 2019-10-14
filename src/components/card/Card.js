@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react'
+import {clearSearch} from '../../actions/searchActions';
 import {addCard, addCommander} from '../../actions/deckActions';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
-const Card = ({card, addCard, addCommander, commander, history}) => {
+const Card = ({card, addCard, addCommander, commander, clearSearch, history}) => {
 
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
@@ -31,19 +32,30 @@ const Card = ({card, addCard, addCommander, commander, history}) => {
   
   const onClick = (e) => {
     e.preventDefault()
-    const card = {
+    const newCard = {
       name,
       id,
       image,
       cmc,
-      colorId
+      cardType: setCategory(),
     }
     if(commander){
-      addCommander(card);
+      addCommander(newCard);
+      clearSearch();
       history.push('/create')
     }
-      addCard(card);
+      addCard(newCard);
   }
+  
+const setCategory = () => {
+  const arr = card.type_line.split(' ');
+  if(arr[0] === 'Legendary'){
+    return arr[1];
+  }else{
+    return arr[0];
+  }
+}
+
   return (
     <div className='card'>
       <a href="#/" onClick={onClick}>
@@ -53,4 +65,4 @@ const Card = ({card, addCard, addCommander, commander, history}) => {
   )
 }
 
-export default connect(null,{addCard,addCommander})(withRouter(Card))
+export default connect(null,{addCard,addCommander,clearSearch})(withRouter(Card))
