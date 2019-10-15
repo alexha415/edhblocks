@@ -1,15 +1,13 @@
 import { 
-  ADD_CARD,
   CLEAR_DECK,
-  DELETE_CARD,
-  ADD_COMMANDER
+  ADD_CART,
+  ADD_COMMANDER,
+  REMOVE_FROM_DECK
 } from "../actions/types"
 
 const initialState = {
   commander: null,
   deckList: [],
-  loading: false,
-  error: null,
   categories: [
     'Land',
     'Enchantment',
@@ -18,17 +16,19 @@ const initialState = {
     'Instant',
     'Planeswalker',
     'Creature'
-  ]
+  ],
+  loading: false,
+  error: null
 }
 
 export default (state = initialState, action) => {
   switch (action.type){
-      case ADD_CARD :
+      case ADD_CART :
         return {
-            ...state,
-            deckList: [...state.deckList, action.payload],
-            loading: false,
-            error: null
+          ...state,
+          deckList: [...state.deckList, ...action.payload],
+          loading: false,
+          error: null
         }
       case CLEAR_DECK :
         return {
@@ -37,13 +37,13 @@ export default (state = initialState, action) => {
           loading: false,
           error: null
         }
-      case DELETE_CARD :
-        return {
-          ...state,
-          deckList: state.deckList.filter(card => {
-            return card.name !== action.payload.name
-          })
-        }
+       case REMOVE_FROM_DECK :
+         return {
+           ...state,
+           deckList: state.deckList.filter(card => {
+             return card.name !== action.payload.name
+           })
+         }
       case ADD_COMMANDER:
         return{
           ...state,

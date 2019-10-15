@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {clearSearch} from '../../actions/searchActions';
-import {addCard, addCommander} from '../../actions/deckActions';
+import {addCard} from '../../actions/cartActions';
+import {addCommander} from '../../actions/deckActions';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
@@ -42,9 +43,10 @@ const Card = ({card, addCard, addCommander, commander, clearSearch, history}) =>
     if(commander){
       addCommander(newCard);
       clearSearch();
-      history.push('/create')
-    }
+      history.push('/deck')
+    }else{
       addCard(newCard);
+    }
   }
   
 const setCategory = () => {

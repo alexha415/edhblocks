@@ -16,4 +16,4 @@ const CommanderList = ({search: {commanders}}) => {
 const mapStateToProps = (state) => ({
   search: state.search
 })
-export default connect(mapStateToProps, {})(CommanderList)
+export default connect(mapStateToProps)(CommanderList)

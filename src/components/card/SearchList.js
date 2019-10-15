@@ -2,11 +2,14 @@ import React, {useEffect} from 'react'
 import Card from './Card';
 import {connect} from 'react-redux';
 import {filterCards} from '../../actions/searchActions';
-const SearchList = ({searchType, search: {cards, filtered}, deck: {deckList}, filterCards}) => {
+const SearchList = ({searchType, search: {cards, filtered}, deck: {deckList, commander}, cart: {cardCart}, filterCards}) => {
 
   useEffect( () => {
-    filterCards(deckList);
-  }, [deckList, cards, filterCards]);
+    commander = {
+      name: 'test'
+    }
+    filterCards([commander,...deckList, ...cardCart]);
+  }, [deckList, cards, cardCart]);
 
   let showCards;
   filtered ? showCards = filtered : showCards = cards
@@ -22,6 +25,7 @@ const SearchList = ({searchType, search: {cards, filtered}, deck: {deckList}, fi
 
 const mapStateToProps = (state) => ({
   search: state.search,
-  deck: state.deck
+  deck: state.deck,
+  cart: state.cart
 })
 export default connect(mapStateToProps, {filterCards})(SearchList)

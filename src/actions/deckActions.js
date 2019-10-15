@@ -1,20 +1,14 @@
 import {
-  ADD_CARD,
+  ADD_CART,
   CLEAR_DECK,
-  DELETE_CARD,
-  ADD_COMMANDER
+  ADD_COMMANDER,
+  REMOVE_FROM_DECK
 } from './types';
 
-export const addCard = (card) => async dispatch => {
+export const addCartToDeck = (cards) => async dispatch => {
   dispatch({
-    type: ADD_CARD,
-    payload: card
-  })
-}
-export const deleteCard = (card) => async dispatch => {
-  dispatch({
-    type: DELETE_CARD,
-    payload: card
+    type: ADD_CART,
+    payload: cards
   })
 }
 export const clearDeck = () => async dispatch => {
@@ -25,6 +19,13 @@ export const clearDeck = () => async dispatch => {
 export const addCommander = (card) => async dispatch => {
   dispatch({
     type: ADD_COMMANDER,
+    payload: card
+  })
+}
+
+export const removeFromDeck = (card) => async dispatch => {
+  dispatch({
+    type: REMOVE_FROM_DECK,
     payload: card
   })
 }

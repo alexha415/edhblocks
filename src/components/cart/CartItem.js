@@ -1,12 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux';
-import {deleteCard} from '../../actions/deckActions';
+import {removeCardFromCart} from '../../actions/cartActions';
 
-const DeckItem = ({card, deleteCard}) => {
+const DeckItem = ({card, removeCardFromCart}) => {
 
   const onClick = (e) => {
     e.preventDefault();
-    deleteCard(card);
+    removeCardFromCart(card);
   }
   return (
     <div className='deck-item' >
@@ -19,4 +19,4 @@ const DeckItem = ({card, deleteCard}) => {
   )
 }
 
-export default connect(null, {deleteCard})(DeckItem)
+export default connect(null, {removeCardFromCart})(DeckItem)
