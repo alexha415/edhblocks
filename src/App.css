@@ -196,3 +196,28 @@ li.nav-bar-item{
 .deck-header{
   position: relative;
 }
+/* .checkbox{
+  margin: 1rem;
+  background-color: rgb(63, 61, 61);
+  color: white;
+  position: relative;
+}
+.checkbox input{
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+}
+.checkmark{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: red;
+}
+.checkbox:hover input ~ .checkmark{
+  background-color: blue;
+}
+.checkbox: input:checked ~ .checkmark{
+  background-color: black;
+} */

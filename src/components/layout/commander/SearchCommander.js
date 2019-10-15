@@ -49,25 +49,26 @@ const SearchCommander = ({searchCommander,clearSearch}) => {
     <Fragment>
       <form onSubmit={onSubmit} style ={{width: '70%'}}>
       <div className="flex-container-row">
-            <div className='checkbox-container'>
+            <div className='checkbox'>
                 <label htmlFor="W">White</label>
-                <input type="checkbox" name='W' checked = {colorId.W} onChange={changeColorId}/>
+                <input type="checkbox" name='W' checked={colorId.W} onChange={changeColorId}/>
+                <span className="checkmark"></span>
             </div>
-            <div className='checkbox-container'>
+            <div className='checkbox'>
                 <label htmlFor="U">Blue</label> 
-                <input type="checkbox" name='U' checked = {colorId.U} onChange={changeColorId}/>
+                <input type="checkbox" name='U' checked={colorId.U} onChange={changeColorId}/>
             </div>
-            <div className='checkbox-container'>
+            <div className='checkbox'>
                 <label htmlFor="B">Black</label>
-                <input type="checkbox" name='B' checked = {colorId.B} onChange={changeColorId}/>
+                <input type="checkbox" name='B' checked={colorId.B} onChange={changeColorId}/>
             </div>
-            <div className='checkbox-container'>
+            <div className='checkbox'>
                 <label htmlFor="R">Red</label>
-                <input type="checkbox" name='R' checked = {colorId.R} onChange={changeColorId}/>
+                <input type="checkbox" name='R' checked={colorId.R} onChange={changeColorId}/>
             </div>
-            <div className='checkbox-container'>
+            <div className='checkbox'>
                 <label htmlFor="G">Green</label>
-                <input type="checkbox" name='G' checked = {colorId.G} onChange={changeColorId}/>
+                <input type="checkbox" name='G' checked={colorId.G} onChange={changeColorId}/>
             </div>
         </div>
         <div className="input-group">   
