@@ -2,23 +2,24 @@ import React,{useState, Fragment} from 'react'
 import {connect} from 'react-redux';
 import {searchCommander} from '../../../actions/searchActions';
 import Checkbox from './Checkbox';
+import Searchbar from './Searchbar';
 const SearchCommander = ({searchCommander}) => {
   const [text, setText] = useState('');
-  const colors = {};
- 
+  const [colors] = useState({});
+
   const setColor = (color, checked) => {
     if(checked){
       colors[color] = '';
     }else{
       delete colors[color]
     }
+    
+    console.log(colors);
   }
-
-  const onChange = (e) => {
-    e.preventDefault();
-    setText(e.target.value);
+  const sendTextToParent = (text) => {
+    console.log(text);
+    setText(text);
   }
-
   const onSubmit = async (e) => {
     e.preventDefault();
     console.log(colors);
@@ -51,14 +52,7 @@ const SearchCommander = ({searchCommander}) => {
           <Checkbox name='Green' color='G' setColor={setColor}/>
           <Checkbox name='Colorless' color='C' setColor={setColor}/>
         </div>
-        <div className="input-group">   
-          <input type="text" className='form-control' value={text} htmlFor='text' placeholder='Search for a Commander...' name='text' onChange={onChange}/>
-          <div className="input-group-append">
-            <a href="#/" className='btn btn-outline-secondary' onClick={onSubmit}>
-              <i className='fa fa-search' style={{height: '100%'}}></i>
-            </a>
-          </div>  
-        </div>
+        <Searchbar send={sendTextToParent} submit={onSubmit}/>
       </form>
     </Fragment>
   )
