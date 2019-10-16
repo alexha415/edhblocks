@@ -134,7 +134,7 @@ li.nav-bar-item{
   border: 1px solid white;
   color: white
 }
-.deck-item{
+.cart-item{
   min-height: 5%;
   background-color: rgb(20, 20, 20);
   border-radius: 0 20rem 20rem 0;
@@ -143,20 +143,20 @@ li.nav-bar-item{
   padding-left: .5rem;
   white-space: nowrap;
 }
-.deck-item p {
+.cart-item p {
   color: white;
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0px;
 }
-.deck-item a {
+.cart-item a {
   display: block;
   height: 100%;
   text-align: left;
   overflow: hidden;
   margin-right: 1rem;
 }
-.deck-item:hover{
+.cart-item:hover{
   background-color: rgba(121, 2, 2, 0.904);
 }
 .deck-list{
@@ -310,4 +310,38 @@ li.nav-bar-item{
   font-weight: 700;
   font-size: 1.5rem;
   background-color: rgb(170, 170, 170);
+}
+.display-modal{
+  display: inline-block;
+  border: 1px solid black;
+  background-color: red;
+  width: 12.5rem;
+  height:17.5rem;
+  position: absolute;
+  top: 0;
+  transform: translateX(-100%);
+}
+.deck-text{
+  white-space: nowrap;
+  margin-bottom: 2rem;
+}
+.hide-modal{
+  display: none;
+}
+.modal-image{
+  height: 100%;
+}
+.deck-item{
+  background-color: black;
+  display:block;
+  list-style-type: none;
+  text-decoration: none;
+  position:relative;
+}
+.deck-item a{
+  
+  color: white;
+}
+.deck-item a:hover{
+  color: white;
 }
