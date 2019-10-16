@@ -8,6 +8,7 @@ import {
 const initialState = {
   commander: null,
   deckList: [],
+  colorId: '',
   categories: [
     'Land',
     'Enchantment',
@@ -47,7 +48,8 @@ export default (state = initialState, action) => {
       case ADD_COMMANDER:
         return{
           ...state,
-          commander: action.payload
+          commander: action.payload,
+          colorId: action.payload.colorId
         }
       default : 
         return{

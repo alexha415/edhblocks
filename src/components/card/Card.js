@@ -41,6 +41,7 @@ const Card = ({card, addCard, addCommander, commander, clearSearch, history}) =>
       colorId: parseColorId(),
       cardType: setCategory(),
     }
+    console.log(newCard);
     if(commander){
       addCommander(newCard);
       clearSearch();

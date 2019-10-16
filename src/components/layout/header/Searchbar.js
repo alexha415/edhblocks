@@ -2,8 +2,7 @@ import React,{useState, Fragment} from 'react'
 
 import {connect} from 'react-redux';
 import {searchCards} from '../../../actions/searchActions';
-
-const Searchbar = ({ searchCards }) => {
+const Searchbar = ({ searchCards, colorId }) => {
 
   const [text, setText] = useState('');
 
@@ -15,7 +14,8 @@ const Searchbar = ({ searchCards }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     searchCards({
-      q: `=${text}`
+      q: `=${text}`,
+      identity: `%3D${colorId}`
     });
     setText('');
   }
@@ -36,4 +36,6 @@ const Searchbar = ({ searchCards }) => {
   )
 }
 
-export default connect(null, {searchCards})(Searchbar)
+export default connect(state => ({
+  colorId: state.deck.colorId
+}), {searchCards})(Searchbar)
