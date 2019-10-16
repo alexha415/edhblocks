@@ -42,31 +42,6 @@ const SearchCommander = ({searchCommander}) => {
   }
   return (
     <Fragment>
-<<<<<<< HEAD
-      <form onSubmit={onSubmit} style ={{width: '70%'}}>
-      <div className="flex-container-row">
-            <div className='checkbox'>
-                <label htmlFor="W">White</label>
-                <input type="checkbox" name='W' checked={colorId.W} onChange={changeColorId}/>
-                <span className="checkmark"></span>
-            </div>
-            <div className='checkbox'>
-                <label htmlFor="U">Blue</label> 
-                <input type="checkbox" name='U' checked={colorId.U} onChange={changeColorId}/>
-            </div>
-            <div className='checkbox'>
-                <label htmlFor="B">Black</label>
-                <input type="checkbox" name='B' checked={colorId.B} onChange={changeColorId}/>
-            </div>
-            <div className='checkbox'>
-                <label htmlFor="R">Red</label>
-                <input type="checkbox" name='R' checked={colorId.R} onChange={changeColorId}/>
-            </div>
-            <div className='checkbox'>
-                <label htmlFor="G">Green</label>
-                <input type="checkbox" name='G' checked={colorId.G} onChange={changeColorId}/>
-            </div>
-=======
       <form onSubmit={onSubmit} style ={{width: '70%', marginBottom: '2rem'}}>
         <div className="flex-container-row checkbox-container">
           <Checkbox name='White' color='W' setColor={setColor}/>
@@ -75,7 +50,6 @@ const SearchCommander = ({searchCommander}) => {
           <Checkbox name='Red' color='R' setColor={setColor}/>
           <Checkbox name='Green' color='G' setColor={setColor}/>
           <Checkbox name='Colorless' color='C' setColor={setColor}/>
->>>>>>> master
         </div>
         <div className="input-group">   
           <input type="text" className='form-control' value={text} htmlFor='text' placeholder='Search for a Commander...' name='text' onChange={onChange}/>
