@@ -13,16 +13,12 @@ const SearchCommander = ({searchCommander}) => {
     }else{
       delete colors[color]
     }
-    
-    console.log(colors);
   }
   const sendTextToParent = (text) => {
-    console.log(text);
     setText(text);
   }
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(colors);
     let colorString = '';
     Object.keys(colors).forEach(key => {
       colorString += key;
@@ -32,7 +28,6 @@ const SearchCommander = ({searchCommander}) => {
       is: `%3Acommander`
     }
     if(colors.hasOwnProperty('C')){
-      console.log(colors);
       query.identity = `%3DC`
     }
     else if(colorString !== ''){

@@ -18,7 +18,7 @@ const Card = ({card, addCard, addCommander, commander, clearSearch, history}) =>
       setName(card.name);
       setCmc(card.cmc);
       setId(card.id);
-      setColorId(card.colorId);
+      setColorId(card.color_identity);
       if(card.layout && card.layout === 'transform'){
         setImage(card.card_faces[0].image_uris.normal);
       }else{
@@ -38,6 +38,7 @@ const Card = ({card, addCard, addCommander, commander, clearSearch, history}) =>
       id,
       image,
       cmc,
+      colorId: parseColorId(),
       cardType: setCategory(),
     }
     if(commander){
@@ -56,6 +57,14 @@ const setCategory = () => {
   }else{
     return arr[0];
   }
+}
+
+const parseColorId = () => {
+  let colors = '';
+  colorId.forEach( color => {
+    colors += color
+  });
+  return colors;
 }
 
   return (
