@@ -1,52 +1,48 @@
 import React,{useState, Fragment} from 'react'
 import {connect} from 'react-redux';
-import {searchCommander, clearSearch} from '../../../actions/searchActions';
-
-const SearchCommander = ({searchCommander,clearSearch}) => {
+import {searchCommander} from '../../../actions/searchActions';
+import Checkbox from './Checkbox';
+const SearchCommander = ({searchCommander}) => {
   const [text, setText] = useState('');
-  const [colorId, setColorId] = useState({
-    W: false,
-    U: false,
-    B: false,
-    R: false,
-    G: false
-  })
+  const colors = {};
+ 
+  const setColor = (color, checked) => {
+    if(checked){
+      colors[color] = '';
+    }else{
+      delete colors[color]
+    }
+  }
 
   const onChange = (e) => {
     e.preventDefault();
     setText(e.target.value);
   }
+
   const onSubmit = async (e) => {
     e.preventDefault();
-    let colors = '';
-    Object.keys(colorId).forEach(key => {
-      if(colorId[key]){
-        colors += key;
-      }
+    console.log(colors);
+    let colorString = '';
+    Object.keys(colors).forEach(key => {
+      colorString += key;
     })
     const query = {
       q: `=${text}`,
       is: `%3Acommander`
     }
-    if(colors !== ''){
-      query.identity = `%3A${colors}`
+    if(colors.hasOwnProperty('C')){
+      console.log(colors);
+      query.identity = `%3DC`
+    }
+    else if(colorString !== ''){
+      query.identity = `%3D${colorString}`
     }
     searchCommander(query)
     setText('');
-    setColorId({
-      W:false,
-      U:false,
-      B:false,
-      R:false,
-      G:false,
-    })
-  }
-
-  const changeColorId = (e) => {
-    setColorId({...colorId, [e.target.name] : e.target.checked});
   }
   return (
     <Fragment>
+<<<<<<< HEAD
       <form onSubmit={onSubmit} style ={{width: '70%'}}>
       <div className="flex-container-row">
             <div className='checkbox'>
@@ -70,6 +66,16 @@ const SearchCommander = ({searchCommander,clearSearch}) => {
                 <label htmlFor="G">Green</label>
                 <input type="checkbox" name='G' checked={colorId.G} onChange={changeColorId}/>
             </div>
+=======
+      <form onSubmit={onSubmit} style ={{width: '70%', marginBottom: '2rem'}}>
+        <div className="flex-container-row checkbox-container">
+          <Checkbox name='White' color='W' setColor={setColor}/>
+          <Checkbox name='Blue' color='U' setColor={setColor}/>
+          <Checkbox name='Black' color='B' setColor={setColor}/>
+          <Checkbox name='Red' color='R' setColor={setColor}/>
+          <Checkbox name='Green' color='G' setColor={setColor}/>
+          <Checkbox name='Colorless' color='C' setColor={setColor}/>
+>>>>>>> master
         </div>
         <div className="input-group">   
           <input type="text" className='form-control' value={text} htmlFor='text' placeholder='Search for a Commander...' name='text' onChange={onChange}/>
@@ -83,4 +89,4 @@ const SearchCommander = ({searchCommander,clearSearch}) => {
     </Fragment>
   )
 }
-export default connect(null, {searchCommander, clearSearch})(SearchCommander)
+export default connect(null, {searchCommander})(SearchCommander)
