@@ -36,7 +36,8 @@ ul{
   padding-top: 1.2rem;
   padding-bottom: .6rem;
   background-color: rgb(116, 116, 116);
-  border-bottom: .2rem solid white;
+  box-shadow: 0rem .3rem 1rem rgb(0, 0, 0);
+  z-index: 1;
 }
 
 ul.nav-bar{
@@ -122,12 +123,14 @@ li.nav-bar-item{
   background-color: rgb(24, 81, 236);
   color: white;
   border-radius: 20rem 20rem 0 0;
+  box-shadow: 0rem 0rem 2rem black;
 }
 .clear-btn{
   width: 50%;
   background-color: rgb(248, 60, 60);
   color: white;
   border-radius: 20rem 20rem 0 0;
+  box-shadow: 0rem 0rem 2rem black;
 }
 .add-btn:hover, .clear-btn:hover{
   background-color: transparent;
@@ -204,19 +207,21 @@ li.nav-bar-item{
   border:1px solid white;
 }
 
-@media screen and (min-width:720px){
-  .checkbox-container{
-    justify-content: space-between;
-    margin-bottom: 2rem;
-  }
-} 
+.checkbox-container{
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.checkbox-container > .checkbox:first-child{
+  border-radius: .5rem 0rem 0rem .5rem;
+}
+.checkbox-container > .checkbox:last-child{
+  border-radius: 0rem .5rem .5rem 0rem;
+}
 @media screen and (max-width:720px){
   .checkbox-container{
     display: grid;
     grid-template-columns: 100%;
     width: 100%;
-    justify-content: space-between;
-    margin-bottom: 2rem;
   }
   .checkmark{
     margin-right: 5%;
@@ -242,9 +247,11 @@ li.nav-bar-item{
   background-color: black;
   color: white;
   border: 1px solid transparent;
+  cursor: pointer;
 }
 .checkbox:hover label {
   text-decoration-line: underline;
+  cursor: pointer;
 }
 
 .checkbox-W .checkmark {
@@ -310,4 +317,9 @@ li.nav-bar-item{
   font-weight: 700;
   font-size: 1.5rem;
   background-color: rgb(170, 170, 170);
+}
+
+.search-bar{
+  width: 100%;
+  box-shadow: 0rem .4rem .5rem black;
 }

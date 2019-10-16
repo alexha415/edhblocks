@@ -4,7 +4,7 @@ import CommanderList from '../layout/commander/CommanderList';
 const Home = () => {
   return (
     <div className="home flex-container-col">
-      <h4>Choose a Color Identity or Search for a Commander</h4>
+      <h4>Search For A Commander</h4>
       <SearchCommander/>
       <CommanderList/>
     </div>

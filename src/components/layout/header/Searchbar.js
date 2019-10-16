@@ -22,8 +22,8 @@ const Searchbar = ({ searchCards, colorId }) => {
 
   return (
     <Fragment>
-      <form onSubmit={onSubmit} style ={{width: '100%'}}>
-        <div className="input-group">   
+      <form onSubmit={onSubmit} style={{width: '100%'}}>
+        <div className="input-group search-bar">   
           <input type="text" className='form-control' value={text} htmlFor='text' placeholder='Search...' name='text' onChange={onChange}/>
           <div className="input-group-append">
             <a href="#/" className='btn btn-outline-secondary' onClick={onSubmit}>
