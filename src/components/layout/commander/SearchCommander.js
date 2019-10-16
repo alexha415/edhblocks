@@ -39,7 +39,6 @@ const SearchCommander = ({searchCommander}) => {
       query.identity = `%3D${colorString}`
     }
     searchCommander(query)
-    setText('');
   }
   return (
     <Fragment>
