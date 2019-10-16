@@ -1,8 +1,15 @@
 import React, {useState, useEffect} from 'react'
+import {connect} from 'react-redux';
 
-const Searchbar = ({submit, send}) => {
+const Searchbar = ({submit, send, search: {commanders}}) => {
   
   const [text, setText] = useState('');
+
+  //this allows search bar to reset when the search results are updated
+  const searchResults = JSON.stringify(commanders);
+  useEffect( () => {
+    setText('');
+  },[searchResults])
 
   useEffect( () => {
     send(text);
@@ -29,4 +36,6 @@ const Searchbar = ({submit, send}) => {
   )
 }
 
-export default Searchbar
+export default connect(state => ({
+  search: state.search
+}))(Searchbar)
