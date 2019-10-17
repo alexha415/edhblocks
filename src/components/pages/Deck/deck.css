@@ -1,0 +1,23 @@
+.deck{
+  height: 100%;
+  max-width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: rgba(240, 233, 233, 0.877);
+}
+.edit-deck-btn{
+  background-color: rgb(20, 20, 20);
+  color: white;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  border: .1rem solid transparent;
+}
+.edit-deck-btn:hover{
+  text-decoration: none;
+  color: rgb(20, 20, 20);
+  background-color: transparent;
+  border: .1rem solid rgb(20, 20, 20);
+}
+.deck-header{
+  position: relative;
+}

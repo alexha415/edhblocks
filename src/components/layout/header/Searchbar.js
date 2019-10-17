@@ -2,6 +2,8 @@ import React,{useState, Fragment} from 'react'
 
 import {connect} from 'react-redux';
 import {searchCards} from '../../../actions/searchActions';
+import './searchbar.css';
+
 const Searchbar = ({ searchCards, colorId }) => {
 
   const [text, setText] = useState('');

@@ -10,7 +10,7 @@ const DeckItem = ({card, removeCardFromCart}) => {
   }
   return (
     <div className='cart-item' >
-      <a href="#/" className='btn' onClick={onClick}>
+      <a href="#/" onClick={onClick}>
         <p>
         {card.name}
         </p>

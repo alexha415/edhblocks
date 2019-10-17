@@ -41,7 +41,6 @@ const Card = ({card, addCard, addCommander, commander, clearSearch, history}) =>
       colorId: parseColorId(),
       cardType: setCategory(),
     }
-    console.log(newCard);
     if(commander){
       addCommander(newCard);
       clearSearch();
@@ -69,7 +68,7 @@ const parseColorId = () => {
 }
 
   return (
-    <div className='card'>
+    <div>
       <a href="#/" onClick={onClick}>
         <img className='card-img' src={image} alt="Card Loading..."/>
       </a>

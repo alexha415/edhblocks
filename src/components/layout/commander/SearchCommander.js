@@ -1,8 +1,10 @@
 import React,{useState, Fragment} from 'react'
 import {connect} from 'react-redux';
 import {searchCommander} from '../../../actions/searchActions';
-import Checkbox from './Checkbox';
+import Checkbox from './checkbox/Checkbox';
 import Searchbar from './Searchbar';
+import './searchCommader.css';
+
 const SearchCommander = ({searchCommander}) => {
   const [text, setText] = useState('');
   const [colors] = useState({});

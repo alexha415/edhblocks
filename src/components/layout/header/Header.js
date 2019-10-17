@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
+import './header.css';
 const Header = () => {
   return (
     <div className="flex-container-row header">
@@ -11,7 +12,7 @@ const Header = () => {
           <Link to="/deck" className="nav-bar-link">Deck</Link>
         </li>
         <li className="nav-bar-item">
-          <Link to="/create" className="nav-bar-link">Create</Link>
+          <Link to="/edit" className="nav-bar-link">Create</Link>
         </li>
       </ul>
     </div>

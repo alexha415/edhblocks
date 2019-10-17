@@ -1,0 +1,64 @@
+.add-btn{
+  width: 50%;
+  background-color: rgb(24, 81, 236);
+  color: white;
+  border-radius: 20rem 20rem 0 0;
+  box-shadow: 0rem 0rem 2rem black;
+}
+.clear-btn{
+  width: 50%;
+  background-color: rgb(248, 60, 60);
+  color: white;
+  border-radius: 20rem 20rem 0 0;
+  box-shadow: 0rem 0rem 2rem black;
+}
+.add-btn:hover, .clear-btn:hover{
+  background-color: transparent;
+  border: 1px solid white;
+  color: white
+}
+.cart-item{
+  min-height: 5%;
+  background-color: rgb(20, 20, 20);
+  border-radius: 0 20rem 20rem 0;
+  border-bottom: 1px solid rgb(116, 116, 116);
+  margin: 0px;
+  padding-left: .5rem;
+  white-space: nowrap;
+}
+.cart-item p {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0px;
+}
+.cart-item a {
+  display: block;
+  height: 100%;
+  text-align: left;
+  overflow: hidden;
+  margin-right: 1rem;
+}
+.cart-item:hover{
+  background-color: rgba(121, 2, 2, 0.904);
+}
+.cart, .cart-list{
+  height: 100%;
+}
+.cart-container{
+  width: 20%;
+  background-color: rgb(63, 61, 61);
+}
+.search-container{
+  margin-right: auto;
+  width: 80%;
+  align-items: center;
+  padding: 2rem;
+  overflow-y: scroll;
+}
+.cart-list{
+  overflow:scroll;
+}
+.cart-list::-webkit-scrollbar{
+  display: none;
+}

@@ -1,9 +1,9 @@
 import React from 'react'
-import ListCardItem from './ListCardItem';
+import ListCardItem from '../listcarditem/ListCardItem';
 
 const CardTypeList = ({list, category}) => {
     return (
-        <div className='card-type-col'>
+        <div>
             <h4>{category}: {list ? list.length : '0'}</h4>
             <ul>
                 {list && list.map( card => {

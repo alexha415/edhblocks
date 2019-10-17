@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react'
 import {connect} from 'react-redux';
-
+import './checkbox.css';
 const Checkbox = ({name, color, setColor}) => {
 
   const checkboxEl = useRef(null)

@@ -1,0 +1,26 @@
+.header{
+  padding-top: 1.2rem;
+  padding-bottom: .6rem;
+  background-color: rgb(116, 116, 116);
+  box-shadow: 0rem .3rem 1rem rgb(0, 0, 0);
+  z-index: 1;
+}
+
+ul.nav-bar{
+  font-size: 2rem;
+  list-style-type: none;
+  margin-bottom: 0px;
+  margin-left: auto;
+  padding-right: 1rem;
+}
+li.nav-bar-item{
+  display: inline-block;
+  margin-right: 1rem;
+}
+.nav-bar-link:hover{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+.nav-bar-link{
+  color:white;
+}

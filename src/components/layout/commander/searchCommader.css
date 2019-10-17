@@ -1,0 +1,17 @@
+.checkbox-container{
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.checkbox-container > .checkbox:first-child{
+  border-radius: .5rem 0rem 0rem .5rem;
+}
+.checkbox-container > .checkbox:last-child{
+  border-radius: 0rem .5rem .5rem 0rem;
+}
+@media screen and (max-width:720px){
+  .checkbox-container{
+    display: grid;
+    grid-template-columns: 100%;
+    width: 100%;
+  }
+} 

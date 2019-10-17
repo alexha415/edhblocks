@@ -4,7 +4,7 @@ import {addCartToDeck} from '../../actions/deckActions';
 import {clearCart} from '../../actions/cartActions';
 import CartItem from './CartItem';
 import {withRouter} from 'react-router-dom';
-
+import './cart.css';
 const DeckList = ({cart:{ cardCart }, addCartToDeck, clearCart, history}) => {
 
 
@@ -14,8 +14,8 @@ const DeckList = ({cart:{ cardCart }, addCartToDeck, clearCart, history}) => {
     history.push('/deck');
   }
   return (
-    <div className = 'flex-container-col deck-container'>
-      <div className="deck-list">
+    <div className = 'flex-container-col cart-container'>
+      <div className="cart-list">
         {cardCart.map(card => {
           return (<CartItem key={card.name} card={card}/>)
         }
