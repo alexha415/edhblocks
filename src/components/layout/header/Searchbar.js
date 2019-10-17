@@ -15,10 +15,13 @@ const Searchbar = ({ searchCards, colorId }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    searchCards({
-      q: `=${text}`,
-      identity: `%3D${colorId}`
-    });
+    const query = {
+      q: `=${text}`
+    }
+    if(colorId){
+      query.identity = `%3D${colorId}`;
+    }
+    searchCards(query);
     setText('');
   }
 

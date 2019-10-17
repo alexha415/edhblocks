@@ -22,10 +22,10 @@ const DeckList = ({cart:{ cardCart }, addCartToDeck, clearCart, history}) => {
         )}
       </div>
       <div>
-        <a href="#/" className="btn cart-btn add-btn"onClick={addCart}>
+        <a href="#/" className="cart-btn add-btn"onClick={addCart}>
           Add to Deck
         </a>
-        <a href="#/" className="btn cart-btn clear-btn"onClick={clearCart}>
+        <a href="#/" className="cart-btn clear-btn"onClick={clearCart}>
           Clear
         </a>
       </div>

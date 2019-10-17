@@ -4,6 +4,7 @@
   list-style-type: none;
   text-decoration: none;
   position:relative;
+  max-width: 100%;
 }
 .deck-item a{
   color: black;
@@ -15,7 +16,7 @@
 .card-text{
   display: flex;
   white-space: nowrap;
-  margin-bottom: .5rem;
   font-size: 1.6rem;
-  line-height: 1.4rem;
+  line-height: 1.8rem;
+  overflow: hidden;
 }

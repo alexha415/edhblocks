@@ -1,8 +1,19 @@
+
+.search-container{
+  margin-right: auto;
+  width: 80%;
+  align-items: center;
+  padding: 2rem;
+  overflow-y: scroll;
+}
 .search-container h4{
   font-size: 5rem;
   animation: fadeIn 3s;
 }
 
+.search-container::-webkit-scrollbar{
+  display: none;
+}
 @keyframes fadeIn{
   0%{
     opacity: 0;

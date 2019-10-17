@@ -1,9 +1,6 @@
 .search-grid{
   grid-template-columns: repeat(4,1fr)
 }
-.search-grid::-webkit-scrollbar{
-  display: none;
-}
 @media screen and (max-width: 1000px){
   .search-grid{
     grid-template-columns: repeat(3,1fr);

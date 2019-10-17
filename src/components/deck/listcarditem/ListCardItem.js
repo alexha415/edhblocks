@@ -20,11 +20,11 @@ const ListCardItem = ({card, removeFromDeck}) => {
   }
 
   return (
-    <li key={card.name} className="card-text">
+    <li key={card.name}>
         <div className='deck-item' onMouseOver={showModal} onMouseLeave={hideModal} onClick={onRemove}>
             <ImageModal show={show} img={card.image}/>
             <a href="#/">
-                <span>{card.name}</span>
+                <span className="card-text">{card.name}</span>
             </a>
         </div>
     </li>)

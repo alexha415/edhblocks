@@ -3,6 +3,7 @@ import SearchList from '../../card/SearchList';
 import Searchbar from'../../layout/header/Searchbar';
 import CartList from '../../cart/CartList';
 import './editDeck.css';
+
 const EditDeck = () => {
   
   return (

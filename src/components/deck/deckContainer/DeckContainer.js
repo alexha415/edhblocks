@@ -2,6 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux';
 import CardTypeList from '../CardTypeList/CardTypeList';
 import {Link} from 'react-router-dom';
+import './deckContainer.css';
+
 const DeckContainer = ({deck : {deckList, categories}}) => {
   
   let sortedDeck = [];
@@ -20,9 +22,9 @@ const DeckContainer = ({deck : {deckList, categories}}) => {
   sortDeck();
   const EmptyDeckDisplay = () => {
     return (
-    <div>
+    <div className="empty-deck-container">
       <h4>Add Some Cards To Your Deck</h4>
-      <Link to='/create' className="edit-deck-btn">Add Cards</Link>
+      <Link to='/edit' className="edit-deck-btn">Add Cards</Link>
     </div>
     )
   }

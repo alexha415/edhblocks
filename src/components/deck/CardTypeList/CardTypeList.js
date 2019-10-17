@@ -1,9 +1,9 @@
 import React from 'react'
 import ListCardItem from '../listcarditem/ListCardItem';
-
+import './cardTypeList.css';
 const CardTypeList = ({list, category}) => {
     return (
-        <div>
+        <div className="category-container">
             <h4>{category}: {list ? list.length : '0'}</h4>
             <ul>
                 {list && list.map( card => {
