@@ -1,22 +1,17 @@
 import React from 'react'
-import {connect} from 'react-redux';
-import {removeFromDeck} from '../../actions/deckActions';
-const CardTypeList = ({list, category, removeFromDeck}) => {
+import ListCardItem from './ListCardItem';
+
+const CardTypeList = ({list, category}) => {
     return (
-        <div style={{margin: '2rem'}}>
+        <div className='card-type-col'>
             <h4>{category}: {list ? list.length : '0'}</h4>
             <ul>
                 {list && list.map( card => {
-                    return(
-                    <li key={card.name}>
-                        <a href="#/" onClick={() => {
-                            removeFromDeck(card)
-                        }}>{card.name}</a>
-                    </li>)
+                    return <ListCardItem card={card}/>
                 })}
-            </ul>
+            </ul>   
         </div>
     )
 }
 
-export default connect( null, {removeFromDeck})(CardTypeList)
+export default CardTypeList

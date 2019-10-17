@@ -9,7 +9,7 @@ const DeckItem = ({card, removeCardFromCart}) => {
     removeCardFromCart(card);
   }
   return (
-    <div className='deck-item' >
+    <div className='cart-item' >
       <a href="#/" className='btn' onClick={onClick}>
         <p>
         {card.name}

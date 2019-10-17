@@ -137,7 +137,7 @@ li.nav-bar-item{
   border: 1px solid white;
   color: white
 }
-.deck-item{
+.cart-item{
   min-height: 5%;
   background-color: rgb(20, 20, 20);
   border-radius: 0 20rem 20rem 0;
@@ -146,20 +146,20 @@ li.nav-bar-item{
   padding-left: .5rem;
   white-space: nowrap;
 }
-.deck-item p {
+.cart-item p {
   color: white;
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0px;
 }
-.deck-item a {
+.cart-item a {
   display: block;
   height: 100%;
   text-align: left;
   overflow: hidden;
   margin-right: 1rem;
 }
-.deck-item:hover{
+.cart-item:hover{
   background-color: rgba(121, 2, 2, 0.904);
 }
 .deck-list{
@@ -322,4 +322,56 @@ li.nav-bar-item{
 .search-bar{
   width: 100%;
   box-shadow: 0rem .4rem .5rem black;
+}
+.display-modal{
+  display: inline-block;
+  border: 1px solid black;
+  background-color: red;
+  width: 20rem;
+  height: 28rem;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transform: translateY(-50%);
+}
+.hide-modal{
+  display: none;
+}
+.modal-image{
+  height: 100%;
+  width: 100%;
+}
+.deck-item{
+  color: black;
+  display:inline-block;
+  list-style-type: none;
+  text-decoration: none;
+  position:relative;
+}
+.deck-item a, a:hover{
+  color: black;
+  text-decoration: none;
+}
+.deck-text{
+  display: flex;
+  white-space: nowrap;
+  margin-bottom: .5rem;
+  font-size: 1.6rem;
+}
+.deck{
+  height: 100%;
+  max-width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: rgba(240, 233, 233, 0.877);
+}
+
+.deck-list-display{
+  margin-top: 5rem;
+  padding: 10rem;
+  width: 80%;
+  align-self: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  box-shadow: 0rem 0rem 2rem black;
 }
