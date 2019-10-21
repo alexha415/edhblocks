@@ -1,0 +1,13 @@
+.login-container{
+    align-items: center;
+}
+.login-form{
+    width: 80%;
+    margin-top: 5rem;
+}
+.input-group {
+    width: 100%;
+}
+.login-input{
+    width: 100%;
+}

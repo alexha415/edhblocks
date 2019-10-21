@@ -4,6 +4,8 @@ const app = express();
 
 app.use(express.json({extended: false}));
 app.use('/api/users', require('./api/users'));
+app.use('/api/decks', require('./api/decks'));
+
 const PORT = process.env.PORT || 5000;
 
 connectDB();

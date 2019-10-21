@@ -8,8 +8,8 @@ import {Provider} from 'react-redux';
 import Home from './components/pages/Home/Home';
 import EditDeck from './components/pages/EditDeck/EditDeck';
 import Deck from './components/pages/Deck/Deck';
+import LoginPage from './components/pages/Login/LoginPage';
 import Header from './components/layout/header/Header';
-
 function App() {
   return (
     <Provider store={store}>
@@ -20,6 +20,7 @@ function App() {
             <Route exact path='/' component={Home}></Route>
             <Route exact path='/deck' component={Deck}></Route>
             <Route exact path='/edit' component={EditDeck}></Route>
+            <Route exact path='/login' component={LoginPage}/>
           </Switch>
         </div>
       </Router>

@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import DeckContainer from '../../deck/deckContainer/DeckContainer';
-import {Link} from 'react-router-dom';
 import './deck.css';
 
 const Deck = ({commander}) => {
