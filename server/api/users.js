@@ -11,24 +11,24 @@ const auth = require('../middleware/auth');
 //@desc     Register a user
 //@access   Public
 router.post('/', [
-  check('username', 'Please enter a valid username').not().isEmpty(),
+  check('name', 'Please enter a valid name').not().isEmpty(),
   check('password', 'Please enter a password with min 6 characters').isLength({min: 6}),
   check('email', 'Please enter a valid email').isEmail()
 ],async (req, res) => {
 
   // check if there are errors in validator
-  const error = validationResult(req);
+  const errors = validationResult(req);
 
   // if there are errors, respond with errors
-  if(!error.isEmpty()){
+  if(!errors.isEmpty()){
     return res.status(400).json({errors: errors.array()})
   }
    try {
     // destructure body
-    const { username, password, email } = req.body;
+    const { name, password, email } = req.body;
 
     // check mongodb schema to see if a user exists with these values
-    const takenUser = await User.findOne({username});
+    const takenUser = await User.findOne({name});
     const takenEmail = await User.findOne({email})
 
     //if so, return with 'user already exists' response
@@ -38,7 +38,7 @@ router.post('/', [
 
     // construct a new user model from schema
     const user = new User({
-      username,
+      name,
       password,
       email
     })

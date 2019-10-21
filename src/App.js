@@ -10,6 +10,7 @@ import EditDeck from './components/pages/EditDeck/EditDeck';
 import Deck from './components/pages/Deck/Deck';
 import LoginPage from './components/pages/Login/LoginPage';
 import Header from './components/layout/header/Header';
+
 function App() {
   return (
     <Provider store={store}>

@@ -4,7 +4,7 @@
     const Login = () => {
         
         
-        const [formData] = useState({
+        const [formData, setFormData] = useState({
             name: '',
             password: '',
             email: ''
@@ -12,28 +12,35 @@
 
         const onChange = (e) => {
             e.preventDefault();
-            
-            console.log(e.target.value);
-            console.log(formData[e.target.name])
 
-            formData[e.target.name] = e.target.value;
+            setFormData({
+                ...formData,
+                [e.target.name] : e.target.value
+            })
         } 
 
-        const onSubmit = (e) => {
+        const onSubmit = async (e) => {
             e.preventDefault();
+            console.log('submit');
             const {name, password, email} = formData;
-
-            fetch('http://localhost:5000/api/users', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body:{
-                    name,
-                    password,
-                    email
-                }
-            })
+            try {
+                const res = await fetch('/api/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name,
+                        password,
+                        email
+                    })
+                })
+                const data = await res.json();
+                console.log(data);
+            } catch (error) {
+                console.log(error);
+            }
+            
         }
 
         return (
@@ -41,7 +48,7 @@
                 <form onSubmit={onSubmit} className='login-form'>
                     <div className="input-group">
                         <label htmlFor="name">Name</label>
-                        <input type="text" name='name' className="login-input" value={formData.name} required onChange={onChange}/>
+                        <input type="text" name='name' className="login-input" value={formData.name} required onChange={onChange} minLength="3"/>
                     </div>
                     <div className="input-group">
                         <label htmlFor="password">Password</label>
@@ -51,6 +58,7 @@
                         <label htmlFor="email">Email</label>
                         <input type="email" name='email' className="login-input" required value={formData.email} onChange={onChange}/>
                     </div>
+                    <input type="submit" className="btn login-submit"/>
                 </form>
             </div>
         )
