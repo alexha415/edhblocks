@@ -6,6 +6,7 @@ DECKS_ERROR
 } from './types';
 
 export const getDecks = () => async dispatch => {
+  console.log('test2');
   try {
     const res = await fetch('/api/decks', {
       method: 'GET',
@@ -14,7 +15,9 @@ export const getDecks = () => async dispatch => {
         "Authentication": JSON.parse(localStorage.getItem('token'))
       }
     })
+    console.log(res);
     const data = await res.json();
+    console.log(data);
     dispatch({
       type: GET_DECKS,
       payload: data
@@ -29,6 +32,12 @@ export const getDecks = () => async dispatch => {
 
 export const addDeck = (deck) => async dispatch => {
   const {commander, cards, colorId} = deck;
+  const newDeck = {
+    commander,
+    cards,
+    colorId
+  }
+  console.log(newDeck);
   try {
     const res = await fetch('/api/decks', {
       method: 'POST',
@@ -36,11 +45,7 @@ export const addDeck = (deck) => async dispatch => {
         "Content-Type":"application/json",
         "Authentication": JSON.parse(localStorage.getItem('token'))
       },
-      body: {
-        commander,
-        cards,
-        colorId
-      }
+      body: JSON.stringify(newDeck)
     })
     const data = await res.json();
     dispatch({

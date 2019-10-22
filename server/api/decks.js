@@ -10,6 +10,7 @@ const auth = require('../middleware/auth');
 router.get( '/', auth, async (req,res) => {
     try {
         const decks = await Deck.find({user: req.user.id});
+        console.log(decks);
         res.json(decks);
     } catch (error) {
         console.log(error);
