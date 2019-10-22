@@ -5,6 +5,7 @@ const app = express();
 app.use(express.json({extended: false}));
 app.use('/api/users', require('./api/users'));
 app.use('/api/decks', require('./api/decks'));
+app.use('/api/auth', require('./api/auth'));
 
 const PORT = process.env.PORT || 5000;
 
