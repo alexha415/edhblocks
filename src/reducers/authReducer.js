@@ -1,16 +1,17 @@
 import {
-    LOAD_USER,
     LOGIN_USER,
     REGISTER_USER,
     AUTH_ERROR,
-    LOGOUT_USER
+    USER_LOADED,
+    LOGOUT_USER,
+    LOGIN_FAIL
 } from '../actions/types';
 
 const initialState = {
-    token: '',
-    loggedIn: false,
+    token: null,
+    isAuthenticated: false,
     error: null,
-    loading: true
+    loading: false
 };
 
 export default (state = initialState, action) => {
@@ -19,18 +20,33 @@ export default (state = initialState, action) => {
             {
                 return {
                     ...state,
-                    loggedIn: true,
+                    isAuthenticated: true,
                     token: action.payload,
                     error: null,
                     loading: false
                 }
             }
         case LOGIN_USER :
-            localStorage.setItem('token', JSON.stringify(action.payload));
+            localStorage.setItem('token', JSON.stringify(action.payload.token));
             return {
                 ...state,
-                loggedIn: true,
+                isAuthenticated: true,
                 token: action.payload,
+                error: false
+            }
+        case LOGOUT_USER :
+            localStorage.removeItem('token');
+            return {
+                ...state,
+                isAuthenticated: false,
+                token: null,
+                error: false
+            }
+        case USER_LOADED :
+            return {
+                ...state,
+                isAuthenticated: true,
+                loading: false,
                 error: false
             }
         case AUTH_ERROR :
@@ -38,6 +54,12 @@ export default (state = initialState, action) => {
                 ...state,
                 error: action.payload,
                 loading: false
+            }
+        case LOGIN_FAIL :
+            return{
+                ...state,
+                isAuthenticated: false,
+                error: action.payload
             }
         default:
             return {

@@ -7,14 +7,11 @@ const {validationResult, check} = require('express-validator/check');
 const bcrypt = require('bcryptjs');
 const User = require('../schema/User');
 
-/* router.get('/', auth ,(req,res) => {
-    console.log(req);
-    if(req.token){
-        const user = jwt.verify(jwt, config);
-    }
-    res.send('hello auth');
+ router.get('/', auth , async (req,res) => {
+    const user = await User.findById(req.user.id).select('-password');
+    res.send({user});
 });
-*/
+
 router.post('/', [
     check('email', 'Please enter a valid email address').isEmail(),
     check('password', 'Please enter a valid password').exists()

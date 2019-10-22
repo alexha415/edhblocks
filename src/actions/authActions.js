@@ -1,38 +1,37 @@
 import {
-LOAD_USER,
 LOGIN_USER,
 LOGOUT_USER,
 REGISTER_USER,
-AUTH_ERROR
+USER_LOADED,
+AUTH_ERROR,
+LOGIN_FAIL
 } from './types';
 
-export const loadUser = () => async dispatch => {
-    // Load user with token
-    let token;
-    if(localStorage.getItem('token')){
-        token = localStorage.getItem('token');
-    }
+
+
+export const loadUser = () => (dispatch) => {
+     let token = localStorage.getItem('token');
+     if (token) token = JSON.parse(token);
     try {
-        const res = await fetch('/api/auth', {
+        const res = fetch('/api/auth', {
             method: 'GET',
             headers: {
-                "Content-Type" : "application/json"
-            },
-            token
+                "Content-Type": "application/json",
+                "Authentication": token
+            }
         })
-        const data = await res.json();
         dispatch({
-            type: LOAD_USER,
-            payload: data
-        })    
+            type: USER_LOADED,
+        })
     } catch (error) {
         dispatch({
             type: AUTH_ERROR,
-            payload: error
-        })  
+            payload: error.message
+        })
     }
 }
 
+//attempt to load user
 export const registerUser = (user) => async dispatch => {
     try {
         const res = await fetch('/api/users', {
@@ -47,13 +46,18 @@ export const registerUser = (user) => async dispatch => {
             type: REGISTER_USER,
             payload: data
         })
-        loginUser();
+        dispatch(loadUser());
     } catch (error) {
         dispatch({
             type: AUTH_ERROR,
             payload: error
         }) 
     }
+}
+export const logoutUser = () => async dispatch => {
+    dispatch({
+        type: LOGOUT_USER
+    })
 }
 export const loginUser = (user) => async dispatch => {
     try {
@@ -69,10 +73,10 @@ export const loginUser = (user) => async dispatch => {
             type: LOGIN_USER,
             payload: data
         })
-        loadUser();
+        dispatch(loadUser());
     } catch (error) {
         dispatch({
-            type: AUTH_ERROR,
+            type: LOGIN_FAIL,
             payload: error
         }) 
     }

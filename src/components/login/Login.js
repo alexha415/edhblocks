@@ -22,7 +22,6 @@
 
         const onSubmit = async (e) => {
             e.preventDefault();
-            console.log('submit');
             const {password, email} = formData;
             loginUser({password,email});
         }
