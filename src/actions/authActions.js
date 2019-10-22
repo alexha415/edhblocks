@@ -9,17 +9,21 @@ LOGIN_FAIL
 
 
 
-export const loadUser = () => (dispatch) => {
+export const loadUser = () => async (dispatch) => {
      let token = localStorage.getItem('token');
      if (token) token = JSON.parse(token);
     try {
-        const res = fetch('/api/auth', {
+        const res = await fetch('/api/auth', {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json",
                 "Authentication": token
             }
         })
+        const data = await res.json();
+
+        if(!res.ok) throw Error(data.msg);
+
         dispatch({
             type: USER_LOADED,
         })
@@ -42,6 +46,8 @@ export const registerUser = (user) => async dispatch => {
             }
         })
         const data = await res.json();
+        console.log(data);
+        if(!res.ok) throw Error(data.msg);
         dispatch ({
             type: REGISTER_USER,
             payload: data
@@ -69,15 +75,19 @@ export const loginUser = (user) => async dispatch => {
             }
         })
         const data = await res.json();
+        if(!res.ok) throw Error(data.msg);
         dispatch ({
             type: LOGIN_USER,
             payload: data
         })
+
         dispatch(loadUser());
-    } catch (error) {
+
+    } catch(err) {
+        console.log(err);
         dispatch({
             type: LOGIN_FAIL,
-            payload: error
+            payload: err
         }) 
     }
 }

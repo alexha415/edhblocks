@@ -6,7 +6,6 @@ const auth = require('../middleware/auth');
 // @Get: '/api/decks
 // Route: Private
 // Gets all the decks for current user
-
 router.get( '/', auth, async (req,res) => {
     try {
         const decks = await Deck.find({user: req.user.id});
@@ -17,6 +16,24 @@ router.get( '/', auth, async (req,res) => {
         res.status(500).send('Server Error');
     }
 });
+
+// @Get: '/api/decks/:id
+// Route: Private
+// Gets one deck with corresponding id
+router.get( '/:id', auth, async (req,res) => {
+    try {
+        console.log(req.params.id);
+        const deck = await Deck.findById(req.params.id);
+        if(!deck){
+            res.status(404).json({msg: 'Deck not found'});
+        }
+        res.json(deck);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Server Error');
+    }
+});
+
 router.post( '/', [
     auth,
     check('commander', 'Please provide a valid commander').not().isEmpty(),
@@ -91,4 +108,5 @@ router.delete('/', auth, async (req, res) => {
         res.status(500).send('Server Error');
     }  
 })
+
 module.exports = router;

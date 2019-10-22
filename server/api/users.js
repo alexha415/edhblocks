@@ -10,6 +10,7 @@ const auth = require('../middleware/auth');
 //@route    POST api/users
 //@desc     Register a user
 //@access   Public
+
 router.post('/', [
   check('name', 'Please enter a valid name').not().isEmpty(),
   check('password', 'Please enter a password with min 6 characters').isLength({min: 6}),
@@ -28,11 +29,10 @@ router.post('/', [
     const { name, password, email } = req.body;
 
     // check mongodb schema to see if a user exists with these values
-    const takenUser = await User.findOne({name});
     const takenEmail = await User.findOne({email})
 
     //if so, return with 'user already exists' response
-    if(takenUser || takenEmail){
+    if(takenEmail){
       return res.status(400).json({msg: 'User already exists'});
     }
 

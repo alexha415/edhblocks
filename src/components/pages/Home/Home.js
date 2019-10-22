@@ -12,6 +12,7 @@ const Home = ({loadUser}) => {
       loadUser();
     }
   },[]);
+  
   return (
     <div className="home flex-container-col">
       <h4>Search For A Commander</h4>

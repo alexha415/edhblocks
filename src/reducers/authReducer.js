@@ -16,23 +16,23 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch(action.type){
+        
         case REGISTER_USER :
-            {
-                return {
-                    ...state,
-                    isAuthenticated: true,
-                    token: action.payload,
-                    error: null,
-                    loading: false
-                }
+            localStorage.setItem('token', JSON.stringify(action.payload.token));
+            return {
+                ...state,
+                isAuthenticated: true,
+                token: action.payload.token,
+                error: null,
+                loading: false
             }
         case LOGIN_USER :
             localStorage.setItem('token', JSON.stringify(action.payload.token));
             return {
                 ...state,
                 isAuthenticated: true,
-                token: action.payload,
-                error: false
+                token: action.payload.token,
+                error: null
             }
         case LOGOUT_USER :
             localStorage.removeItem('token');
@@ -40,25 +40,29 @@ export default (state = initialState, action) => {
                 ...state,
                 isAuthenticated: false,
                 token: null,
-                error: false
+                error: null
             }
         case USER_LOADED :
             return {
                 ...state,
                 isAuthenticated: true,
                 loading: false,
-                error: false
+                error: null
             }
         case AUTH_ERROR :
+                console.log(action.payload);
             return {
                 ...state,
                 error: action.payload,
                 loading: false
             }
         case LOGIN_FAIL :
+                console.log(action.payload);
             return{
                 ...state,
                 isAuthenticated: false,
+                loading: false,
+                token: null,
                 error: action.payload
             }
         default:

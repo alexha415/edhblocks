@@ -5,6 +5,8 @@ export const SEARCH_COMMANDER = 'SEARCH_COMMANDER';
 export const CLEAR_SEARCH = 'CLEAR_SEARCH';
 
 
+export const GET_DECK = 'GET_DECK';
+export const DECK_FAIL = 'DECK_FAIL';
 export const ADD_COMMANDER = 'ADD_COMMANDER';
 export const CLEAR_DECK = 'CLEAR_DECK';
 export const ADD_CART = 'ADD_CART';
