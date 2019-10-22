@@ -50,3 +50,22 @@
         transform: translate(0%,0%);
     }
 }
+.input-group h4{
+    display: block;
+    width: 100%;
+}
+.auth-link{
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+.auth-link:hover{
+    text-decoration: none;
+    color:  rgb(169, 170, 172);
+}
+.auth-header{
+    font-size: 4rem;
+    margin-top: 2rem;
+}

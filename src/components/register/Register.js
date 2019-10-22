@@ -1,7 +1,9 @@
-import React,{useState} from 'react';
-import './login.css';
+import React,{useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {registerUser} from '../../actions/authActions';
 
-const Register = () => {
+const Register = ({registerUser}) => {
     
     
     const [formData, setFormData] = useState({
@@ -23,28 +25,17 @@ const Register = () => {
         e.preventDefault();
         console.log('submit');
         const {name, password, email} = formData;
-        try {
-            const res = await fetch('http://localhost:3000/api/users', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body:{
-                    name,
-                    password,
-                    email
-                }
-            })
-            const data = await res.json();
-            console.log(data);
-        } catch (error) {
-            console.log(error);
-        }
+        registerUser({
+            name,
+            password,
+            email
+        })
         
     }
 
     return (
         <div className='flex-container-col login-container'>
+            <h4 className='auth-header'>Register</h4>
             <form onSubmit={onSubmit} className='login-form'>
                 <div className="input-group">
                     <label htmlFor="name">Name</label>
@@ -59,9 +50,13 @@ const Register = () => {
                     <input type="email" name='email' className="login-input" required value={formData.email} onChange={onChange}/>
                 </div>
                 <input type="submit" className="btn login-submit"/>
+                <div className="input-group">
+                    <h4>Have An Account?</h4>
+                    <Link className='auth-link' to='/login'>Log In</Link>
+                </div>
             </form>
         </div>
     )
 }
 
-export default Register
+export default connect(null, {registerUser})(Register)

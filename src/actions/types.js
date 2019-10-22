@@ -13,3 +13,9 @@ export const REMOVE_FROM_DECK = 'REMOVE_FROM_DECK';
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 export const CLEAR_CART = 'CLEAR_CART';
+
+export const REGISTER_USER = 'REGISTER_USER';
+export const LOGIN_USER = 'LOGIN_USER';
+export const LOGOUT_USER = 'LOGOUT_USER';
+export const LOAD_USER = 'LOAD_USER';
+export const AUTH_ERROR = 'AUTH_ERROR';

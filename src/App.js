@@ -9,6 +9,7 @@ import Home from './components/pages/Home/Home';
 import EditDeck from './components/pages/EditDeck/EditDeck';
 import Deck from './components/pages/Deck/Deck';
 import LoginPage from './components/pages/Login/LoginPage';
+import RegisterPage from './components/pages/Register/RegisterPage';
 import Header from './components/layout/header/Header';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route exact path='/deck' component={Deck}></Route>
             <Route exact path='/edit' component={EditDeck}></Route>
             <Route exact path='/login' component={LoginPage}/>
+            <Route exact path='/register' component={RegisterPage}/>
           </Switch>
         </div>
       </Router>
