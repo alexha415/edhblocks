@@ -1,11 +1,20 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {connect} from 'react-redux';
+import {getDecks} from '../../../actions/decksActions';
 
-const Decks = () => {
+const Decks = ({getDecks, decks: {decks}}) => {
+  useEffect( () => {
+    getDecks();
+  },[]);
   return (
     <div>
-      
+      {decks && decks.length > 0 && decks.map( deck => {
+        return (<div>{deck.commander}</div>)
+      })}
     </div>
   )
 }
 
-export default Decks
+export default connect((state) => ({
+  decks: state.decks
+}), {getDecks})(Decks)

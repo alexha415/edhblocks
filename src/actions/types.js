@@ -20,3 +20,9 @@ export const LOGOUT_USER = 'LOGOUT_USER';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const USER_LOADED = 'USER_LOADED';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
+
+export const GET_DECKS = 'GET_DECKS';
+export const ADD_DECK = 'ADD_DECK';
+export const EDIT_DECK = 'EDIT_DECK';
+export const DELETE_DECK = 'DELETE_DECK';
+export const DECKS_ERROR = 'DECKS_ERROR';

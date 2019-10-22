@@ -8,6 +8,14 @@ const deckSchema = mongoose.Schema({
   cards: {
     type: Array,
     required: true
+  },
+  commander: {
+    type: Object,
+    required: true
+  },
+  colorId: {
+    type: String,
+    required: true
   }
 })
 
