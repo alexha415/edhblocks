@@ -9,6 +9,7 @@ import {
 
 const initialState = {
   commander: null,
+  _id: null,
   deckList: [],
   colorId: '',
   categories: [
@@ -33,7 +34,8 @@ export default (state = initialState, action) => {
           deckList: action.payload.cards,
           colorId: action.payload.colorId,
           loading: false,
-          error: null
+          error: null,
+          _id: action.payload._id
         }
       case ADD_CART :
         return {

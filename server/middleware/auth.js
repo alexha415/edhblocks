@@ -5,8 +5,6 @@ module.exports = (req,res,next) => {
   //need to send token in header
   token = req.headers.authentication;
 
-  console.log(token);
-  
   if(token){
     try {
       const decoded = jwt.verify(token, config.get('jwtSecret'));

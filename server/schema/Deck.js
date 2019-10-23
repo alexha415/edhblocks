@@ -5,7 +5,7 @@ const deckSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users'
   },
-  cards: {
+  deckList: {
     type: Array,
     required: true
   },

@@ -1,18 +1,25 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {connect} from 'react-redux';
 import {addCartToDeck} from '../../actions/deckActions';
+import {editDeck, addDeck} from '../../actions/decksActions';
 import {clearCart} from '../../actions/cartActions';
 import CartItem from './CartItem';
 import {withRouter} from 'react-router-dom';
 import './cart.css';
-const DeckList = ({cart:{ cardCart }, addCartToDeck, clearCart, history}) => {
 
+const DeckList = ({deck , cart:{ cardCart }, editDeck, addCartToDeck, clearCart, history}) => {
 
   const addCart = () => {
     addCartToDeck(cardCart);
+  }
+
+  useEffect( () => {
+    console.log(deck);
+    editDeck(deck);
     clearCart();
     history.push('/deck');
-  }
+  },[JSON.stringify(deck)]);
+  
   return (
     <div className = 'flex-container-col cart-container'>
       <div className="cart-list">
@@ -34,6 +41,7 @@ const DeckList = ({cart:{ cardCart }, addCartToDeck, clearCart, history}) => {
 }
 
 const mapStateToProps = (state) => ({
-  cart: state.cart
+  cart: state.cart,
+  deck: state.deck
 })
-export default connect(mapStateToProps, {addCartToDeck, clearCart})(withRouter(DeckList))
+export default connect(mapStateToProps, {editDeck, addCartToDeck, clearCart})(withRouter(DeckList))

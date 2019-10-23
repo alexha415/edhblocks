@@ -9,7 +9,6 @@ const auth = require('../middleware/auth');
 router.get( '/', auth, async (req,res) => {
     try {
         const decks = await Deck.find({user: req.user.id});
-        console.log(decks);
         res.json(decks);
     } catch (error) {
         console.log(error);
@@ -22,7 +21,6 @@ router.get( '/', auth, async (req,res) => {
 // Gets one deck with corresponding id
 router.get( '/:id', auth, async (req,res) => {
     try {
-        console.log(req.params.id);
         const deck = await Deck.findById(req.params.id);
         if(!deck){
             res.status(404).json({msg: 'Deck not found'});
@@ -45,7 +43,7 @@ router.post( '/', [
             res.status(400).json({errors: errors.array()})
         }
         const {commander, colorId, cards} = req.body;
-
+        console.log(req.body);
         try {
 
             const newDeck = new Deck({
@@ -64,13 +62,14 @@ router.post( '/', [
         }
 });
 
-router.put('/', auth, async (req, res) => {
+router.put('/:id', auth, async (req, res) => {
 
-    const {commander, cards, colorId} = req.body;
+    const {commander, deckList, colorId} = req.body;
 
     const commanderFields = {};
+    console.log(req.body);
     if(commander) commanderFields.commander = commander;
-    if(cards) commanderFields.cards = cards;
+    if(deckList) commanderFields.deckList = deckList;
     if(colorId) commanderFields.colorId = colorId;
     try {
         let deck = await Deck.findById(req.params.id);

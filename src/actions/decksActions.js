@@ -6,7 +6,6 @@ DECKS_ERROR
 } from './types';
 
 export const getDecks = () => async dispatch => {
-  console.log('test2');
   try {
     const res = await fetch('/api/decks', {
       method: 'GET',
@@ -15,9 +14,7 @@ export const getDecks = () => async dispatch => {
         "Authentication": JSON.parse(localStorage.getItem('token'))
       }
     })
-    console.log(res);
     const data = await res.json();
-    console.log(data);
     dispatch({
       type: GET_DECKS,
       payload: data
@@ -37,7 +34,6 @@ export const addDeck = (deck) => async dispatch => {
     cards,
     colorId
   }
-  console.log(newDeck);
   try {
     const res = await fetch('/api/decks', {
       method: 'POST',
@@ -60,10 +56,30 @@ export const addDeck = (deck) => async dispatch => {
   }
 }
 
-export const editDeck = (deckId) => async dispatch => {
-
+export const editDeck = (deck) => async dispatch => {
+  try {
+    console.log(deck);
+    const res = await fetch(`/api/decks/${deck._id}`, {
+      method: 'PUT',
+      headers: {
+        "Content-Type":"application/json",
+        "Authentication": JSON.parse(localStorage.getItem('token'))
+      },
+      body: JSON.stringify(deck)
+    })
+    const data = await res.json();
+    dispatch({
+      type: ADD_DECK,
+      payload: data
+    })
+  } catch (error) {
+    dispatch({
+      type: DECKS_ERROR,
+      payload: error.msg
+    })
+  }
 }
 
-export const deleteDeck = (deckId) => async dispatch => {
+export const deleteDeck = (did) => async dispatch => {
 
 }
