@@ -32,7 +32,6 @@ const DeckContainer = ({deck : {deckList, categories}}) => {
   }
   return (
     <div className={`decklist-container ${deckList.length === 0 ? '' : 'deck-grid'}`}>
-      {addLink}
       {deckList.length === 0 ? EmptyDeckDisplay() : 
         sortedDeck.map(categoryList => {
           const categoryName = categoryList[0].cardType;
