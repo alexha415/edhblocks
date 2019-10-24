@@ -21,7 +21,7 @@ const initialState = {
     'Planeswalker',
     'Creature'
   ],
-  loading: false,
+  loading: true,
   error: null
 }
 
@@ -31,7 +31,7 @@ export default (state = initialState, action) => {
         return {
           ...state,
           commander: action.payload.commander,
-          deckList: action.payload.cards,
+          deckList: action.payload.deckList,
           colorId: action.payload.colorId,
           loading: false,
           error: null,
@@ -69,7 +69,7 @@ export default (state = initialState, action) => {
           ...state,
           commander: null,
           colorId: '',
-          deckList: null,
+          deckList: [],
           error: action.payload,
           loading: false
         }

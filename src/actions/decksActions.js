@@ -2,7 +2,8 @@ import {
 GET_DECKS,
 ADD_DECK,
 EDIT_DECK,
-DECKS_ERROR
+DECKS_ERROR,
+SET_CURRENT
 } from './types';
 
 export const getDecks = () => async dispatch => {
@@ -82,4 +83,11 @@ export const editDeck = (deck) => async dispatch => {
 
 export const deleteDeck = (did) => async dispatch => {
 
+}
+
+export const setCurrent = (did) => dispatch => {
+  dispatch({
+    type: SET_CURRENT,
+    payload: did
+  })
 }

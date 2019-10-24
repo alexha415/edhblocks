@@ -1,10 +1,14 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import DeckContainer from '../../deck/deckContainer/DeckContainer';
+import {getDeck} from '../../../actions/deckActions';
 import './deck.css';
 
 
-const Deck = ({commander}) => {
+const Deck = ({did,commander,getDeck}) => {
+    useEffect( () => {
+        if(did) getDeck(did)
+    },[]);
     return (
         <div className='deck flex-container-col'>
             <div className='flex-container-col deck-header' style ={{alignItems:'flex-end', marginRight: '2rem'}}>
@@ -17,6 +21,7 @@ const Deck = ({commander}) => {
 }
 
 const mapStateToProps = state =>({
-    commander: state.deck.commander
+    commander: state.deck.commander,
+    did: state.decks.current
 })
-export default connect(mapStateToProps)(Deck)
+export default connect(mapStateToProps,{getDeck})(Deck)

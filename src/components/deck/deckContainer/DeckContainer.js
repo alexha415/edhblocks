@@ -6,6 +6,8 @@ import './deckContainer.css';
 
 const DeckContainer = ({deck : {deckList, categories}}) => {
   
+  const addLink = <Link to='/edit' className="edit-deck-btn">Add Cards</Link>;
+
   let sortedDeck = [];
   const sortDeck = () => {
     categories.forEach( category => {
@@ -19,17 +21,18 @@ const DeckContainer = ({deck : {deckList, categories}}) => {
     })
   }
 
-  sortDeck();
+  {deckList && sortDeck() }
   const EmptyDeckDisplay = () => {
     return (
     <div className="empty-deck-container">
       <h4>Add Some Cards To Your Deck</h4>
-      <Link to='/edit' className="edit-deck-btn">Add Cards</Link>
+      {addLink}
     </div>
     )
   }
   return (
     <div className={`decklist-container ${deckList.length === 0 ? '' : 'deck-grid'}`}>
+      {addLink}
       {deckList.length === 0 ? EmptyDeckDisplay() : 
         sortedDeck.map(categoryList => {
           const categoryName = categoryList[0].cardType;

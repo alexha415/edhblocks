@@ -7,11 +7,11 @@ import {
   DECK_FAIL
 } from './types';
 
-export const addCartToDeck = (cards) => async dispatch => {
+export const addCartToDeck = (cards, callback) => async dispatch => {
   dispatch({
     type: ADD_CART,
     payload: cards
-  })
+  });
 }
 export const clearDeck = () => async dispatch => {
   dispatch({

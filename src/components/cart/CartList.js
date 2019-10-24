@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {connect} from 'react-redux';
 import {addCartToDeck} from '../../actions/deckActions';
 import {editDeck, addDeck} from '../../actions/decksActions';
@@ -9,16 +9,15 @@ import './cart.css';
 
 const DeckList = ({deck , cart:{ cardCart }, editDeck, addCartToDeck, clearCart, history}) => {
 
-  const addCart = () => {
-    addCartToDeck(cardCart);
-  }
-
-  useEffect( () => {
-    console.log(deck);
-    editDeck(deck);
+  const addCart = async () => {
+    const updatedDeck = {
+      ...deck,
+      deckList : [...deck.deckList, ...cardCart]
+    }
+    editDeck(updatedDeck);
     clearCart();
     history.push('/deck');
-  },[JSON.stringify(deck)]);
+  }
   
   return (
     <div className = 'flex-container-col cart-container'>

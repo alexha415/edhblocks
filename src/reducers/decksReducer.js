@@ -1,7 +1,8 @@
 import {
   GET_DECKS,
   ADD_DECK,
-  EDIT_DECK
+  EDIT_DECK,
+  SET_CURRENT
 } from '../actions/types';
 
 const initialState = {
@@ -25,6 +26,11 @@ export default (state = initialState, action) => {
           decks: action.payload,
           loading: false,
           errors: null
+        }
+      case SET_CURRENT :
+        return {
+          ...state,
+          current: action.payload
         }
     default :
       return {

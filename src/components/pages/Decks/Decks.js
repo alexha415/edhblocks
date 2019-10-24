@@ -1,10 +1,9 @@
 import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {getDecks} from '../../../actions/decksActions';
-import {getDeck} from '../../../actions/deckActions';
+import {setCurrent, getDecks} from '../../../actions/decksActions';
 
-const Decks = ({getDeck, getDecks, decks: {decks}}) => {
+const Decks = ({getDecks, setCurrent, decks: {decks}}) => {
 
   useEffect( () => {
     console.log('test');
@@ -14,7 +13,7 @@ const Decks = ({getDeck, getDecks, decks: {decks}}) => {
     <div>
       {decks && decks.length > 0 && decks.map(deck =>(
       <Link to='/deck' key={deck._id} onClick={()=>{
-        getDeck(deck._id)
+        setCurrent(deck._id);
       }}>{deck.commander.name}
         </Link>
       )
@@ -25,4 +24,4 @@ const Decks = ({getDeck, getDecks, decks: {decks}}) => {
 
 export default connect((state) => ({
   decks: state.decks
-}), {getDecks, getDeck})(Decks)
+}), {getDecks, setCurrent})(Decks)
