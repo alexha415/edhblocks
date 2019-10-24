@@ -4,14 +4,16 @@ import {
   ADD_COMMANDER,
   REMOVE_FROM_DECK,
   GET_DECK,
-  DECK_FAIL
+  DECK_FAIL,
+  EDIT_DECK
 } from './types';
 
-export const addCartToDeck = (cards, callback) => async dispatch => {
-  dispatch({
-    type: ADD_CART,
-    payload: cards
-  });
+export const addCartToDeck = (cards) => (dispatch) => {
+    dispatch({
+      type: ADD_CART,
+      payload: cards
+    });
+    return Promise.resolve();
 }
 export const clearDeck = () => async dispatch => {
   dispatch({

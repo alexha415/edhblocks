@@ -3,7 +3,8 @@ GET_DECKS,
 ADD_DECK,
 EDIT_DECK,
 DECKS_ERROR,
-SET_CURRENT
+SET_CURRENT,
+GET_DECK
 } from './types';
 
 export const getDecks = () => async dispatch => {
@@ -59,7 +60,6 @@ export const addDeck = (deck) => async dispatch => {
 
 export const editDeck = (deck) => async dispatch => {
   try {
-    console.log(deck);
     const res = await fetch(`/api/decks/${deck._id}`, {
       method: 'PUT',
       headers: {
@@ -69,10 +69,12 @@ export const editDeck = (deck) => async dispatch => {
       body: JSON.stringify(deck)
     })
     const data = await res.json();
+
     dispatch({
-      type: ADD_DECK,
+      type: EDIT_DECK,
       payload: data
     })
+
   } catch (error) {
     dispatch({
       type: DECKS_ERROR,

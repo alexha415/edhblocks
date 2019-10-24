@@ -5,7 +5,8 @@ import {getDeck} from '../../../actions/deckActions';
 import './deck.css';
 
 
-const Deck = ({did,commander,getDeck}) => {
+const Deck = ({did,deck, deck: {commander},getDeck}) => {
+
     useEffect( () => {
         if(did) getDeck(did)
     },[]);
@@ -21,7 +22,7 @@ const Deck = ({did,commander,getDeck}) => {
 }
 
 const mapStateToProps = state =>({
-    commander: state.deck.commander,
+    deck: state.deck,
     did: state.decks.current
 })
 export default connect(mapStateToProps,{getDeck})(Deck)

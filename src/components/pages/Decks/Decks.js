@@ -6,8 +6,8 @@ import {setCurrent, getDecks} from '../../../actions/decksActions';
 const Decks = ({getDecks, setCurrent, decks: {decks}}) => {
 
   useEffect( () => {
-    console.log('test');
     getDecks();
+    //eslint-disable-next-line
   },[]);
   return (
     <div>
