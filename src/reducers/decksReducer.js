@@ -33,7 +33,6 @@ export default (state = initialState, action) => {
           current: action.payload
         }
         case ADD_DECK :
-          console.log(action.payload);
           return {
             ...state,
             decks: action.payload,

@@ -69,7 +69,7 @@ export const editDeck = (deck) => async dispatch => {
       body: JSON.stringify(deck)
     })
     const data = await res.json();
-
+    
     dispatch({
       type: EDIT_DECK,
       payload: data

@@ -10,13 +10,13 @@
   color: black;
   text-decoration: none;
 }
-.deck-item a:hover{
-  color: red;
-}
 .card-text{
   display: flex;
   white-space: nowrap;
   font-size: 1.6rem;
   line-height: 1.8rem;
   overflow: hidden;
+}
+.remove-item a span {
+  color: red;
 }

@@ -4,7 +4,7 @@ import CardTypeList from '../CardTypeList/CardTypeList';
 import {Link} from 'react-router-dom';
 import './deckContainer.css';
 
-const DeckContainer = ({deck : {deckList, categories}}) => {
+const DeckContainer = ({removeMode, handleClick, deck : {deckList, categories}}) => {
   
   const addLink = <Link to='/edit' className="edit-deck-btn">Add Cards</Link>;
 
@@ -22,7 +22,7 @@ const DeckContainer = ({deck : {deckList, categories}}) => {
   }
 
   {deckList && sortDeck() }
-  const EmptyDeckDisplay = () => {
+  const emptyDeckDisplay = () => {
     return (
     <div className="empty-deck-container">
       <h4>Add Some Cards To Your Deck</h4>
@@ -30,13 +30,21 @@ const DeckContainer = ({deck : {deckList, categories}}) => {
     </div>
     )
   }
+  const deckDisplay = () => {
+    return (
+    <div className="deck-grid">
+      {sortedDeck.map(categoryList => {
+        const categoryName = categoryList[0].cardType;
+         return <CardTypeList removeMode={removeMode} handleClick={handleClick} key={categoryName} category={categoryName} list={categoryList}/>
+        })
+      }
+    </div>
+    )
+  }
+
   return (
-    <div className={`decklist-container ${deckList.length === 0 ? '' : 'deck-grid'}`}>
-      {deckList.length === 0 ? EmptyDeckDisplay() : 
-        sortedDeck.map(categoryList => {
-          const categoryName = categoryList[0].cardType;
-          return <CardTypeList key={categoryName} category={categoryName} list={categoryList}/>
-        })}
+    <div className='decklist-container'>
+      {deckList.length !== 0 ? deckDisplay() : emptyDeckDisplay()}
     </div>
   )
 }

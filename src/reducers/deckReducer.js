@@ -52,11 +52,16 @@ export default (state = initialState, action) => {
           error: null
         }
        case REMOVE_FROM_DECK :
+         console.log(state.deckList)
          return {
            ...state,
            deckList: state.deckList.filter(card => {
-             return card.name !== action.payload.name
-           })
+              return !action.payload.find(removalCard => {
+                return removalCard.name === card.name;
+              })
+           }),
+           loading: false,
+           error: null
          }
       case ADD_COMMANDER:
         return{

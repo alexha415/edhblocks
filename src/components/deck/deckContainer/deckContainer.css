@@ -1,7 +1,5 @@
 .decklist-container{
-  display: inline-block;
-  width: 95%;
-  height: 35%;
+  height: 100%;
   box-shadow: 0rem 0rem 2rem black;
 }
 .deck-grid{
@@ -9,11 +7,8 @@
   grid-template-columns: repeat(auto-fill, minmax(200px,200px));
   column-gap: 1rem;
   row-gap: 1rem;
-  padding: 10rem 22rem 15rem 10rem;
-  height: auto;
 }
-.empty-deck-container{
-  min-height: 100%;
+.empty-deck-container{  
   position: relative;
   background-color: rgb(63, 63, 63);
   padding-top: 3rem;
@@ -25,23 +20,4 @@
   font-size: 2.5rem;
   color: white;
   background-color: none;
-}
-.edit-deck-btn{
-  color: white;
-  background-color: rgb(20, 20, 20);
-  border: .1rem solid transparent;
-  border-radius: 1rem;
-  font-size: 1.5rem;
-  display: inline-block;
-  margin-top: 2rem;
-  margin-left: 2rem;
-  line-height: 2.5rem;
-  padding: 1rem;
-  text-align: center;
-}
-
-.edit-deck-btn:hover{
-  text-decoration: none;
-  color: white;
-  transform: scale(1.1);
 }
