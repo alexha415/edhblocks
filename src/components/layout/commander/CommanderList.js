@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import Card from '../../card/Card';
 import {connect} from 'react-redux';
+import './commanderList.css';
 
 const CommanderList = ({search: {commanders}}) => {
 

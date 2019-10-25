@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {connect} from 'react-redux';
+import './searchbar.css';
 
 const Searchbar = ({submit, send, search: {commanders}}) => {
   

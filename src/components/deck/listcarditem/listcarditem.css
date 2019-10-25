@@ -1,0 +1,22 @@
+.deck-item{
+  color: black;
+  display:inline-block;
+  list-style-type: none;
+  text-decoration: none;
+  position:relative;
+  max-width: 100%;
+}
+.deck-item a{
+  color: black;
+  text-decoration: none;
+}
+.card-text{
+  display: flex;
+  white-space: nowrap;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  overflow: hidden;
+}
+.remove-item a span {
+  color: red;
+}

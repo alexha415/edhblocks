@@ -5,8 +5,16 @@ const deckSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users'
   },
-  cards: {
+  deckList: {
     type: Array,
+    required: true
+  },
+  commander: {
+    type: Object,
+    required: true
+  },
+  colorId: {
+    type: String,
     required: true
   }
 })

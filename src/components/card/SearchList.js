@@ -2,6 +2,8 @@ import React, {useEffect} from 'react'
 import Card from './Card';
 import {connect} from 'react-redux';
 import {filterCards} from '../../actions/searchActions';
+import './searchList.css';
+
 const SearchList = ({searchType, search: {cards, filtered}, deck: {deckList, commander}, cart: {cardCart}, filterCards}) => {
 
   useEffect( () => {
@@ -15,7 +17,7 @@ const SearchList = ({searchType, search: {cards, filtered}, deck: {deckList, com
   filtered ? showCards = filtered : showCards = cards
   
   return (
-  <div className='container card-list-container'>
+  <div className='grid search-grid'>
     {showCards && showCards.length > 0 && showCards.map(card => {
       return <Card key={card.id} card={card} commander={searchType}/>
     })}

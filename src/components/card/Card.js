@@ -2,10 +2,11 @@ import React, {useEffect, useState} from 'react'
 import {clearSearch} from '../../actions/searchActions';
 import {addCard} from '../../actions/cartActions';
 import {addCommander} from '../../actions/deckActions';
+import {addDeck} from '../../actions/decksActions';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
-const Card = ({card, addCard, addCommander, commander, clearSearch, history}) => {
+const Card = ({card, addCard, addCommander, commander, clearSearch, addDeck, history}) => {
 
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
@@ -41,11 +42,15 @@ const Card = ({card, addCard, addCommander, commander, clearSearch, history}) =>
       colorId: parseColorId(),
       cardType: setCategory(),
     }
-    console.log(newCard);
     if(commander){
       addCommander(newCard);
       clearSearch();
-      history.push('/deck')
+      addDeck({
+        commander: newCard,
+        cards: [],
+        colorId: parseColorId()
+      })
+      history.push('/decks');
     }else{
       addCard(newCard);
     }
@@ -69,7 +74,7 @@ const parseColorId = () => {
 }
 
   return (
-    <div className='card'>
+    <div>
       <a href="#/" onClick={onClick}>
         <img className='card-img' src={image} alt="Card Loading..."/>
       </a>
@@ -77,4 +82,4 @@ const parseColorId = () => {
   )
 }
 
-export default connect(null,{addCard,addCommander,clearSearch})(withRouter(Card))
+export default connect(null,{addCard,addCommander,clearSearch,addDeck})(withRouter(Card))

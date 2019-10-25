@@ -1,0 +1,31 @@
+.deck{
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: rgba(240, 233, 233, 0.877);
+}
+.deck-header{
+  margin-left: auto;
+  align-items: flex-end;
+}
+.deck-header h4{
+  margin-top: 2rem;
+}
+.edit-deck-btn{
+  color: white;
+  background-color: rgb(20, 20, 20);
+  border: .1rem solid transparent;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  display: inline-block;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  line-height: 2.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.edit-deck-btn:hover{
+  text-decoration: none;
+  color: white;
+  transform: scale(1.1);
+}

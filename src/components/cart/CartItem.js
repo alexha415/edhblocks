@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux';
 import {removeCardFromCart} from '../../actions/cartActions';
+import './cart.css';
 
 const DeckItem = ({card, removeCardFromCart}) => {
 
@@ -9,8 +10,8 @@ const DeckItem = ({card, removeCardFromCart}) => {
     removeCardFromCart(card);
   }
   return (
-    <div className='deck-item' >
-      <a href="#/" className='btn' onClick={onClick}>
+    <div className='cart-item' >
+      <a href="#/" onClick={onClick}>
         <p>
         {card.name}
         </p>

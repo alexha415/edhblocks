@@ -1,0 +1,19 @@
+
+.display-modal{
+  display: inline-block;
+  border: 1px solid black;
+  background-color: red;
+  width: 25rem;
+  height: 35rem;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transform: translateY(-50%);
+}
+.hide-modal{
+  display: none;
+}
+.modal-image{
+  height: 100%;
+  width: 100%;
+}

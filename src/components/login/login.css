@@ -1,0 +1,71 @@
+.login-container{
+    align-items: center;
+}
+.login-form{
+    width: 80%;
+    margin-top: 5rem;
+}
+.input-group {
+    width: 100%;
+}
+.login-input{
+    width: 100%;
+    font-size: 2rem;
+}
+.input-group label{
+    font-size: 2rem;
+}
+.login-input:invalid{
+    border: .2rem solid rgb(197, 39, 39);
+    border-radius: .5rem;
+}
+.login-input:valid{
+    border: .2rem solid rgb(22, 139, 58);
+    border-radius: .5rem;
+}
+.login-submit{
+    display: block;
+    width: 100%;
+    margin-top: 2rem;
+    border: .2rem solid black;
+    border-radius: .5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0rem .1rem .5rem gray;
+}
+.login-submit:active{
+    color: black;
+    border: .2rem solid black;
+    animation: click .1s;
+}
+@keyframes click {
+    0%{
+        transform: translate(0%,0%);
+    }
+    80%{
+        transform: translate(0%,5%);
+    }
+    100%{
+        transform: translate(0%,0%);
+    }
+}
+.input-group h4{
+    display: block;
+    width: 100%;
+}
+.auth-link{
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+.auth-link:hover{
+    text-decoration: none;
+    color:  rgb(169, 170, 172);
+}
+.auth-header{
+    font-size: 4rem;
+    margin-top: 2rem;
+}
