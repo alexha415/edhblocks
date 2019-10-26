@@ -25,14 +25,14 @@ const Deck = ({deck, did, deckList, commander , getDeck, removeFromDeck, editDec
     }
     const defaultButtons = 
     <Fragment>
-        <Link to='/edit' className="edit-deck-btn">Add Cards</Link>
-        <Link to='#' className="edit-deck-btn" onClick={toggleRemoveMode}>Remove Cards</Link>
+        <Link to='/edit' className="edit-deck-btn primary">Add Cards</Link>
+        <Link to='#' className="edit-deck-btn primary" onClick={toggleRemoveMode}>Remove Cards</Link>
     </Fragment>
 
     const removeButtons = 
     <Fragment>
-        <Link to='#' className="edit-deck-btn" onClick={onRemove}>Confirm</Link>
-        <Link to='#' className="edit-deck-btn" onClick={toggleRemoveMode}>Cancel</Link>
+        <Link to='#' className="edit-deck-btn primary" onClick={onRemove}>Confirm</Link>
+        <Link to='#' className="edit-deck-btn primary" onClick={toggleRemoveMode}>Cancel</Link>
     </Fragment>
     
     const [removeMode, setRemoveMode] = useState(false);
@@ -54,7 +54,7 @@ const Deck = ({deck, did, deckList, commander , getDeck, removeFromDeck, editDec
             <DeckContainer removeMode={removeMode} handleClick={handleRemoveClick}/>
             <div className='flex-container-col deck-header'>
                 <h4>{commander && commander.name}</h4>
-                {<img src={commander && commander.image} alt = 'Commander 'style={{width: '65%'}}/>}
+                {<img src={commander && commander.image} alt = 'Commander'/>}
                 <span>
                     {removeMode ? removeButtons : defaultButtons}
                 </span>

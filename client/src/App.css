@@ -1,3 +1,10 @@
+/*
+primary: rgb(57, 93, 255);
+secondary: rgb(128, 149, 245)
+contrast: rgb(250, 209, 96)
+*/
+
+
 *,
 *::before,
 *::after{
@@ -6,7 +13,6 @@
   box-sizing: inherit;
 }
 html, body, #root, .App {
-  height: 100%;
   min-height: 320px;
 }
 html{
@@ -35,4 +41,19 @@ ul{
 
 .grid{
   display: grid;
+}
+
+.primary{
+  color: rgb(57, 93, 255);
+  background-color: rgb(57, 93, 255);
+}
+
+.secondary{
+  color: rgb(205, 214, 252);
+  background-color: rgb(205, 214, 252);
+}
+
+.contrast{
+  color: rgb(250, 209, 96);
+  background-color: rgb(250, 209, 96)
 }

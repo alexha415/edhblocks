@@ -29,10 +29,10 @@ const DeckList = ({deck , cart:{ cardCart }, editDeck, addCartToDeck, clearCart,
         )}
       </div>
       <div>
-        <a href="#/" className="cart-btn add-btn"onClick={addCart}>
+        <a href="#/" className="primary cart-btn add-btn"onClick={addCart}>
           Add to Deck
         </a>
-        <a href="#/" className="cart-btn clear-btn"onClick={clearCart}>
+        <a href="#/" className="primary cart-btn clear-btn"onClick={clearCart}>
           Clear
         </a>
       </div>

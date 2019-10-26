@@ -32,7 +32,7 @@ const DeckContainer = ({removeMode, handleClick, deck : {deckList, categories}})
   }
   const deckDisplay = () => {
     return (
-    <div className="deck-grid">
+    <div className="secondary deck-grid">
       {sortedDeck.map(categoryList => {
         const categoryName = categoryList[0].cardType;
          return <CardTypeList removeMode={removeMode} handleClick={handleClick} key={categoryName} category={categoryName} list={categoryList}/>

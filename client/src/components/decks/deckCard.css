@@ -1,0 +1,44 @@
+.deck-card{
+    margin: 1rem;
+    flex-wrap: wrap;
+}
+.deck-card-header{
+    background-color: grey;
+    flex: .7 1.4 0;
+    position: relative;
+    display: none;
+}
+.deck-card-header span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    color: white;
+    font-size: 1.3rem;
+}
+.deck-card-body{
+    flex: 2 1 auto;
+    margin-bottom: 2rem;
+}
+.deck-card-body img{
+    width: 20rem;
+}
+.deck-card-footer{
+    flex: 1 2 5rem;
+    border: solid black;
+    border-radius: 0rem 0rem 3rem 3rem;
+    box-shadow: .2rem .2rem .5rem grey;
+}
+
+.deck-card-footer a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+    padding: .1rem 1rem;
+    font-weight: bold;
+    border: solid black;
+    border-radius: .5rem;
+    align-self: center;
+    margin: 0rem auto;
+}
