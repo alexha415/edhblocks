@@ -7,7 +7,8 @@ import './searchbar.css';
 const Searchbar = ({ searchCards, colorId }) => {
 
   const [text, setText] = useState('');
-
+  const [restrictColorId, setRestrictColorId] = useState(false);
+  
   const onChange = (e) => {
     e.preventDefault();
     setText(e.target.value);
@@ -18,16 +19,29 @@ const Searchbar = ({ searchCards, colorId }) => {
     const query = {
       q: `=${text}`
     }
-    if(colorId){
-      query.identity = `%3D${colorId}`;
+    if(colorId && restrictColorId){
+      query.identity = `%3A${colorId}`;
     }
-    searchCards(query);
-    setText('');
+    if(restrictColorId || text !== ''){
+      searchCards(query);
+      setText('');
+    }else{
+      alert('Please refine your search');
+    }
   }
 
+  const onCheckboxClick = (e) => {
+    e.preventDefault();
+    setRestrictColorId(!restrictColorId);
+  }
   return (
     <Fragment>
       <form onSubmit={onSubmit} style={{width: '100%'}}>
+        <div className={`flex-container-row checkbox restrict-checkbox primary`}  onClick={onCheckboxClick}>
+          <label htmlFor={'restrict-color'}>Restrict Search To Deck Colors</label>
+          <input type="checkbox" name={'restrict-color'} checked={restrictColorId} onClick={null}/>
+          <span className='checkmark'></span>
+        </div>
         <div className="input-group search-bar">   
           <input type="text" className='form-control' value={text} htmlFor='text' placeholder='Search...' name='text' onChange={onChange}/>
           <div className="input-group-append">

@@ -7,10 +7,7 @@ import './searchList.css';
 const SearchList = ({searchType, search: {cards, filtered}, deck: {deckList, commander}, cart: {cardCart}, filterCards}) => {
 
   useEffect( () => {
-    commander = {
-      name: 'test'
-    }
-    filterCards([commander,...deckList, ...cardCart]);
+    filterCards([commander, ...deckList, ...cardCart]);
   }, [deckList, cards, cardCart]);
 
   let showCards;

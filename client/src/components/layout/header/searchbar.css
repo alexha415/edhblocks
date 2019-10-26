@@ -1,4 +1,21 @@
 .search-bar{
   width: 100%;
   box-shadow: 0rem .4rem .5rem black;
+  margin-bottom: 2rem;
+}
+.restrict-checkbox{
+  margin-bottom: 2rem;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  border: 2px solid transparent;
+}
+.restrict-checkbox:hover label{
+  text-decoration: none;
+  
+}
+.restrict-checkbox:hover{
+  border: 2px solid black;
+}
+.restrict-checkbox span {
+  margin-right: 2rem;
 }
