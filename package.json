@@ -20,7 +20,7 @@
     "eject": "react-scripts eject",
     "server": "npm start --prefix ./server",
     "dev": "concurrently \"npm start\" \"npm run server\"",
-    "heroku-postbuild": "npm install && npm run build"
+    "heroku-prebuild": "cd server && npm install && npm start"
   },
   "eslintConfig": {
     "extends": "react-app"
