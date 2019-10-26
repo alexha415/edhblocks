@@ -14,11 +14,10 @@ app.use('/api/auth', require('./api/auth'));
 const PORT = process.env.PORT || 5000;
 
 connectDB();
-if(process.env.NODE_ENV === 'production'){
 
-  app.use(express.static('build'))
-  app.get('*', (req, res) => sendFile(path.resolve(__dirname, '/build', 'index.html')));
-}
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname,'/build/index.html'));
+});
 
 app.listen(PORT, () => {
   console.log('Listening on : ' + PORT);
