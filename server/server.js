@@ -14,10 +14,6 @@ app.use('/api/auth', require('./api/auth'));
 const PORT = process.env.PORT || 5000;
 
 connectDB();
-app.get('/', (req,res) => {
-  res.send("Hello World");
-});
-
 if(process.env.NODE_ENV === 'production'){
 
   app.use(express.static('build'))
