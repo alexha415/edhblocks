@@ -13,13 +13,12 @@ contrast: rgb(250, 209, 96)
   box-sizing: inherit;
 }
 html, body, #root, .App {
-  min-height: 320px;
+  height: 100%;
 }
 html{
   font-size: 62.5%;
 }
 #root, body{
-  min-height: 100vh;
   box-sizing: border-box;
   min-width: 320px;
 }

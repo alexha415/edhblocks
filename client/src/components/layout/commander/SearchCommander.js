@@ -40,6 +40,7 @@ const SearchCommander = ({searchCommander}) => {
   return (
     <Fragment>
       <form onSubmit={onSubmit} style ={{width: '70%', marginBottom: '2rem'}}>
+      <h4>Search For A Commander</h4>
         <div className="flex-container-row checkbox-container">
           <Checkbox name='White' color='W' setColor={setColor}/>
           <Checkbox name='Blue' color='U' setColor={setColor}/>

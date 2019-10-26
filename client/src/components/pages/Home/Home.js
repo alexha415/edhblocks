@@ -15,7 +15,6 @@ const Home = ({loadUser}) => {
   
   return (
     <div className="home flex-container-col">
-      <h4>Search For A Commander</h4>
       <SearchCommander/>
       <CommanderList/>
     </div>

@@ -30,7 +30,7 @@ const Searchbar = ({submit, send, search: {commanders}}) => {
       <input type="text" className='form-control' value={text} placeholder='Search for a Commander...' name='text' onChange={onChange}/>
       <div className="input-group-append">
         <a href="#/" className='btn btn-outline-secondary' onClick={onSubmit}>
-          <i className='fa fa-search' style={{height: '100%'}}></i>
+          <i className='fa fa-search'></i>
         </a>
       </div>  
     </div>
