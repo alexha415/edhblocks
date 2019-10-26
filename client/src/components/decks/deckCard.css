@@ -19,7 +19,7 @@
 }
 .deck-card-body{
     flex: 2 1 auto;
-    margin-bottom: 2rem;
+    margin-bottom: .5rem;
 }
 .deck-card-body img{
     width: 20rem;

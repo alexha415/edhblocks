@@ -3,6 +3,7 @@ import DeckCard from '../../decks/DeckCard';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getDecks} from '../../../actions/decksActions';
+import './decks.css';
 
 const Decks = ({getDecks, decks: {decks}}) => {
 
@@ -11,7 +12,7 @@ const Decks = ({getDecks, decks: {decks}}) => {
     //eslint-disable-next-line
   },[]);
   return (
-    <div className="flex-container-row" style={{marginTop: '2rem'}}>
+    <div className="grid decks" style={{marginTop: '2rem'}}>
       {decks && decks.length > 0 && decks.map(deck =>{
         return <DeckCard key={deck._id} deck={deck}/>
       }
