@@ -7,13 +7,7 @@ import {editDeck} from '../../../actions/decksActions';
 import './deck.css';
 
 
-const Deck = ({deck, did, deckList, commander , getDeck, removeFromDeck, editDeck}) => {
-
-    useEffect( () => {
-        if(did) getDeck(did)
-    },[]);
-
-
+const Deck = ({deck: {commander}, removeFromDeck}) => {
 
     const toggleRemoveMode = (e) => {
         e.preventDefault();
@@ -64,9 +58,6 @@ const Deck = ({deck, did, deckList, commander , getDeck, removeFromDeck, editDec
 }
 
 const mapStateToProps = state =>({
-    commander: state.deck.commander,
-    deckList: state.deck.deckList,
     deck: state.deck,
-    did: state.decks.current
 })
 export default connect(mapStateToProps,{getDeck, removeFromDeck, editDeck})(Deck)

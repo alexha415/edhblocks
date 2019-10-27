@@ -2,9 +2,11 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {setCurrent} from '../../actions/decksActions';
+import {clearDeck, getDeck} from '../../actions/deckActions';
+import {withRouter} from 'react-router-dom';
 import './deckCard.css';
 
-const DeckCard = ({deck, setCurrent}) => {
+const DeckCard = ({deck, setCurrent, getDeck, history}) => {
     return (
         <div className="deck-card flex-container-col">
             <span className="deck-card-header">
@@ -14,13 +16,17 @@ const DeckCard = ({deck, setCurrent}) => {
                 <img src={deck.commander.image} alt=""/>
             </span>
             <span className="flex-container-row deck-card-footer">
-                <Link to='/deck' onClick={()=>{
-                    setCurrent(deck._id);
+                <a onClick={()=>{
+                    setCurrent(deck._id).then( () => 
+                    getDeck(deck._id)).then( () => {
+                        history.push(`/deck/${deck._id}`);
+                    });
                     }}>
                 View
-                </Link>
+                </a>
                 <Link to='/deck' onClick={()=>{
-                    setCurrent(deck._id);
+                    setCurrent(deck._id).then( () => 
+                    getDeck(deck._id));
                     }}>
                 Delete
                 </Link>
@@ -29,4 +35,4 @@ const DeckCard = ({deck, setCurrent}) => {
     )
 }
 
-export default connect(null, {setCurrent})(DeckCard)
+export default connect(null, {setCurrent, getDeck})(withRouter(DeckCard))

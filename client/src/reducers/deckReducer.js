@@ -4,7 +4,8 @@ import {
   ADD_COMMANDER,
   REMOVE_FROM_DECK,
   GET_DECK,
-  DECK_FAIL
+  DECK_FAIL,
+  SET_LOADING
 } from "../actions/types"
 
 const initialState = {
@@ -47,6 +48,9 @@ export default (state = initialState, action) => {
       case CLEAR_DECK :
         return {
           ...state,
+          commander: null,
+          colorId: '',
+          _id: null,
           deckList: [],
           loading: false,
           error: null
@@ -77,6 +81,11 @@ export default (state = initialState, action) => {
           deckList: [],
           error: action.payload,
           loading: false
+        }
+      case SET_LOADING:
+        return {
+          ...state,
+          loading: true
         }
       default : 
         return{

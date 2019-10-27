@@ -8,10 +8,10 @@ import {
 } from '../actions/types';
 
 const initialState = {
-    token: null,
+    token: localStorage.getItem('token'),
     isAuthenticated: false,
     error: null,
-    loading: false
+    loading: true
 };
 
 export default (state = initialState, action) => {

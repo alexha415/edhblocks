@@ -1,9 +1,13 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Route, Redirect} from 'react-router-dom';
+import {loadUser} from '../../actions/authActions';
 import {connect} from 'react-redux';
 
-const PrivateRoute = ({auth: {isAuthenticated, loading}, component: Component, ...rest}) => {
- 
+const PrivateRoute = ({auth: {isAuthenticated, loading}, loadUser, component: Component, ...rest}) => {
+  
+  useEffect( () => {
+    loadUser();
+  },[])
   return (
     <Route {...rest} render={(props) => {
       return !isAuthenticated && !loading ? 
@@ -17,4 +21,4 @@ const PrivateRoute = ({auth: {isAuthenticated, loading}, component: Component, .
 
 export default connect( state => ({
   auth: state.auth
-}))(PrivateRoute)
+}),{loadUser})(PrivateRoute)

@@ -88,8 +88,11 @@ export const deleteDeck = (did) => async dispatch => {
 }
 
 export const setCurrent = (did) => dispatch => {
-  dispatch({
-    type: SET_CURRENT,
-    payload: did
+  return new Promise( (resolve, reject) => {
+    dispatch({
+      type: SET_CURRENT,
+      payload: did
+    })
+    resolve();
   })
 }

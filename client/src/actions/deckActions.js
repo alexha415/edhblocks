@@ -6,7 +6,8 @@ import {
   GET_DECK,
   DECK_FAIL,
   EDIT_DECK,
-  DECKS_ERROR
+  DECKS_ERROR,
+  SET_LOADING
 } from './types';
 
 export const addCartToDeck = (cards) => (dispatch) => {
@@ -27,13 +28,6 @@ export const addCommander = (card) => async dispatch => {
     payload: card
   })
 }
-
-// export const removeFromDeck = (card) => async dispatch => {
-//   dispatch({
-//     type: REMOVE_FROM_DECK,
-//     payload: card
-//   })
-// }
 
 export const removeFromDeck = (cards) => async (dispatch,getState) => {
   dispatch({

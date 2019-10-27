@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -14,8 +14,10 @@ import RegisterPage from './components/pages/Register/RegisterPage';
 import Header from './components/layout/header/Header';
 import PrivateRoute from './components/routing/PrivateRoute';
 import PublicRoute from './components/routing/PublicRoute';
+import {loadUser} from './actions/authActions';
 
 function App() {
+
   return (
     <Provider store={store}>
       <Router>
@@ -23,7 +25,7 @@ function App() {
           <Header/>
           <Switch>
             <Route exact path='/' component={Home}/>
-            <PrivateRoute exact path='/deck' component={Deck}/>
+            <PrivateRoute exact path='/deck/:id' component={Deck}/>
             <PrivateRoute exact path='/decks' component={Decks}/>
             <PrivateRoute exact path='/edit' component={EditDeck}/>
             <PublicRoute exact path='/login' component={LoginPage}/>

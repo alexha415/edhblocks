@@ -42,3 +42,6 @@
     align-self: center;
     margin: 0rem auto;
 }
+.deck-card-footer a:hover{
+    cursor: pointer;
+}
