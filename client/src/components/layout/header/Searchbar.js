@@ -1,4 +1,4 @@
-import React,{useState, Fragment} from 'react'
+import React,{useState, Fragment, useEffect} from 'react'
 
 import {connect} from 'react-redux';
 import {searchCards} from '../../../actions/searchActions';
@@ -14,13 +14,22 @@ const Searchbar = ({ searchCards, colorId }) => {
     setText(e.target.value);
   }
 
+  useEffect( () => {
+     if(colorId) searchCards({
+        q: '=',
+        commander: `:${colorId}`,
+        legal: '%3Acommander'
+     }, {order: '=edhrec'})
+    //eslint-disable-next-line
+  },[colorId]);
   const onSubmit = async (e) => {
     e.preventDefault();
     const query = {
-      q: `=${text}`
+      q: `=${text}`,
+      legal: '%3Acommander'
     }
     if(colorId && restrictColorId){
-      query.identity = `%3A${colorId}`;
+      query.commander = `%3A${colorId}`;
     }
     if(restrictColorId || text !== ''){
       searchCards(query);

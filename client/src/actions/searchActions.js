@@ -11,12 +11,18 @@ const search_root = 'https://api.scryfall.com/cards/search';
 //colorIdenty: Commander color identity
 //query: string to search with
 
-export const searchCards = (query) => async dispatch => {
+export const searchCards = (query,order) => async dispatch => {
         let queryString = '';
-        Object.keys(query).forEach( key => {
-            if(queryString !== ''){
-                queryString += '+';
-            }
+
+        if(order) {
+            Object.keys(order).forEach( key => {
+            queryString += `${key}${order[key]}`
+            })
+             queryString += '&';
+        }
+
+        Object.keys(query).forEach( (key,index) => {
+            if(index !== 0) queryString += '%20'
             queryString += `${key}${query[key]}`
         })
         try {
@@ -26,6 +32,7 @@ export const searchCards = (query) => async dispatch => {
                 type: SEARCH_CARDS,
                 payload: data.data
             })
+           
         } catch (error) {
             
         }
