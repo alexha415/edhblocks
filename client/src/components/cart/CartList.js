@@ -11,7 +11,7 @@ const DeckList = ({deck , cart:{ cardCart }, editDeck, addCartToDeck, clearCart,
 
   const addCart = () => {
     addCartToDeck(cardCart).then( () => {
-      history.push('/deck');
+      history.push(`/deck/${deck._id}`);
     });
   }
 

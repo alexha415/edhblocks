@@ -1,14 +1,18 @@
 import React, {Fragment, useState, useEffect} from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import DeckContainer from '../../deck/deckContainer/DeckContainer';
 import {getDeck, removeFromDeck} from '../../../actions/deckActions';
 import {editDeck} from '../../../actions/decksActions';
 import './deck.css';
 
 
-const Deck = ({deck: {commander}, removeFromDeck}) => {
-
+const Deck = ({deck: {commander, _id},getDeck, removeFromDeck, match}) => {
+    useEffect( () => {
+        if(!_id && _id !== match.params.id){
+            getDeck(match.params.id);
+        }
+    },[]);
     const toggleRemoveMode = (e) => {
         e.preventDefault();
         setRemoveMode(!removeMode);
@@ -16,10 +20,11 @@ const Deck = ({deck: {commander}, removeFromDeck}) => {
     const onRemove = (e) => {
         e.preventDefault();
         removeFromDeck(removalList);
+        setRemoveMode(false);
     }
     const defaultButtons = 
     <Fragment>
-        <Link to='/edit' className="edit-deck-btn primary">Add Cards</Link>
+        <Link to={`/edit/${_id}`} className="edit-deck-btn primary">Add Cards</Link>
         <Link to='#' className="edit-deck-btn primary" onClick={toggleRemoveMode}>Remove Cards</Link>
     </Fragment>
 
@@ -60,4 +65,4 @@ const Deck = ({deck: {commander}, removeFromDeck}) => {
 const mapStateToProps = state =>({
     deck: state.deck,
 })
-export default connect(mapStateToProps,{getDeck, removeFromDeck, editDeck})(Deck)
+export default connect(mapStateToProps,{getDeck, removeFromDeck, editDeck})(withRouter(Deck))

@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {setCurrent} from '../../actions/decksActions';
-import {clearDeck, getDeck} from '../../actions/deckActions';
+import {getDeck} from '../../actions/deckActions';
 import {withRouter} from 'react-router-dom';
 import './deckCard.css';
 

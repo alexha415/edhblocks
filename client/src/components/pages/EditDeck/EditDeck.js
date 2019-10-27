@@ -1,11 +1,19 @@
-import React from 'react'
+import React, {useEffect} from 'react';
+import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
 import SearchList from '../../card/SearchList';
 import Searchbar from'../../layout/header/Searchbar';
 import CartList from '../../cart/CartList';
+import {getDeck} from '../../../actions/deckActions';
 import './editDeck.css';
 
-const EditDeck = () => {
-  
+const EditDeck = ({deck: {_id}, match, getDeck}) => {
+  useEffect( () => {
+    if(!_id && _id !== match.params.id) {
+      getDeck(match.params.id);
+    }
+    //eslint-disable-next-line
+  },[]);
   return (
     <div className='flex-container-row cart'>
       <div className="flex-container-col search-container">
@@ -18,4 +26,6 @@ const EditDeck = () => {
   )
 }
 
-export default EditDeck
+export default connect(state => ({
+  deck: state.deck
+}), {getDeck})(withRouter(EditDeck))

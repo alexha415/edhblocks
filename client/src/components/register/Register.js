@@ -23,7 +23,6 @@ const Register = ({registerUser}) => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        console.log('submit');
         const {name, password, email} = formData;
         registerUser({
             name,

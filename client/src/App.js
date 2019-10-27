@@ -27,7 +27,7 @@ function App() {
             <Route exact path='/' component={Home}/>
             <PrivateRoute exact path='/deck/:id' component={Deck}/>
             <PrivateRoute exact path='/decks' component={Decks}/>
-            <PrivateRoute exact path='/edit' component={EditDeck}/>
+            <PrivateRoute exact path='/edit/:id' component={EditDeck}/>
             <PublicRoute exact path='/login' component={LoginPage}/>
             <PublicRoute exact path='/register' component={RegisterPage}/>
           </Switch>

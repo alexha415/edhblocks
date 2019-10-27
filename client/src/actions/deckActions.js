@@ -35,7 +35,6 @@ export const removeFromDeck = (cards) => async (dispatch,getState) => {
     payload: cards
   })
   dispatch(editDeck(getState().deck));
-  console.log(getState().deck);
   dispatch(getDeck(getState().deck._id));
 }
 

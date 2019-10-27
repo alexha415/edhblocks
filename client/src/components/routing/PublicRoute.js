@@ -11,7 +11,6 @@ const PublicRoute = ({auth: {isAuthenticated, loading}, component: Component, lo
 
   return (
     <Route {...rest} render={(props) => {
-      console.log(isAuthenticated, loading);
       return isAuthenticated && !loading ?
        <Redirect to='/'/> : <Component {...props}/>
     }}>

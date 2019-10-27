@@ -56,7 +56,6 @@ export default (state = initialState, action) => {
           error: null
         }
        case REMOVE_FROM_DECK :
-         console.log(state.deckList)
          return {
            ...state,
            deckList: state.deckList.filter(card => {

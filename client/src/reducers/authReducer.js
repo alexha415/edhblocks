@@ -50,14 +50,12 @@ export default (state = initialState, action) => {
                 error: null
             }
         case AUTH_ERROR :
-                console.log(action.payload);
             return {
                 ...state,
                 error: action.payload,
                 loading: false
             }
         case LOGIN_FAIL :
-                console.log(action.payload);
             return{
                 ...state,
                 isAuthenticated: false,

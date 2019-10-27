@@ -43,7 +43,6 @@ router.post( '/', [
             res.status(400).json({errors: errors.array()})
         }
         const {commander, colorId, cards} = req.body;
-        console.log(req.body);
         try {
 
             const newDeck = new Deck({
@@ -67,7 +66,6 @@ router.put('/:id', auth, async (req, res) => {
     const {commander, deckList, colorId} = req.body;
 
     const commanderFields = {};
-    console.log(req.body);
     if(commander) commanderFields.commander = commander;
     if(deckList) commanderFields.deckList = deckList;
     if(colorId) commanderFields.colorId = colorId;

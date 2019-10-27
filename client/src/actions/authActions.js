@@ -46,7 +46,6 @@ export const registerUser = (user) => async dispatch => {
             }
         })
         const data = await res.json();
-        console.log(data);
         if(!res.ok) throw Error(data.msg);
         dispatch ({
             type: REGISTER_USER,
