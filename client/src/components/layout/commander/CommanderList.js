@@ -1,16 +1,27 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, Fragment} from 'react'
 import Card from '../../card/Card';
 import {connect} from 'react-redux';
 import './commanderList.css';
 
 const CommanderList = ({search: {commanders}}) => {
 
+  const searchResults = () => {
+    return <div className='container card-list-container'>
+      {commanders.map(card => {
+        return <Card key={card.id} card={card} commander={card}/>
+      })}
+    </div>
+    }
+  const emptySearch = () => {
+    if(commanders)
+    return <p className='no-result-text'>No Results</p>
+  }
   return (
-  <div className='container card-list-container'>
-    {commanders && commanders.map(card => {
-      return <Card key={card.id} card={card} commander={card}/>
-    })}
-  </div>
+    <Fragment>
+      {commanders && commanders.length > 0 ?
+        searchResults() : emptySearch()
+      }
+    </Fragment>
   )
 }
 

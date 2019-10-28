@@ -7,7 +7,7 @@ import {editDeck} from '../../../actions/decksActions';
 import './deck.css';
 
 
-const Deck = ({deck: {commander, _id},getDeck, removeFromDeck, match}) => {
+const Deck = ({deck: {deckList, commander, _id},getDeck, removeFromDeck, match}) => {
     useEffect( () => {
         if(!_id && _id !== match.params.id){
             getDeck(match.params.id);
@@ -48,11 +48,19 @@ const Deck = ({deck: {commander, _id},getDeck, removeFromDeck, match}) => {
         }
             setRemovalList(newList);
     }
+
+    const emptyDeckContainer = () => {
+        return <div className='empty-deck-container'>
+            <p>Add some cards to your deck</p>
+            <Link to={`/edit/${_id}`} className="edit-deck-btn primary">Add Cards</Link>
+        </div>
+    }
     return (
-        <div className='deck flex-container-row'>
-            <DeckContainer removeMode={removeMode} handleClick={handleRemoveClick}/>
+        <div className='deck'>
+            {
+            deckList && deckList.length > 0 ? <DeckContainer removeMode={removeMode} handleClick={handleRemoveClick}/> : emptyDeckContainer()}
             <div className='flex-container-col deck-header'>
-                <h4>{commander && commander.name}</h4>
+                <h4 className="secondary">{commander && commander.name}</h4>
                 {<img src={commander && commander.image} alt = 'Commander'/>}
                 <span>
                     {removeMode ? removeButtons : defaultButtons}

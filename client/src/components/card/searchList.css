@@ -1,3 +1,7 @@
+.no-result-text{
+  font-size: 3rem;
+}
+
 .search-grid{
   grid-template-columns: repeat(4,1fr)
 }

@@ -6,19 +6,12 @@
   padding: 2rem;
   overflow-y: scroll;
 }
-.search-container h4{
+.search-container h4:first-child{
   font-size: 5rem;
   animation: fadeIn 3s;
+  font-family: "Roboto",sans-serif;
 }
 
 .search-container::-webkit-scrollbar{
   display: none;
-}
-@keyframes fadeIn{
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-  }
 }

@@ -1,15 +1,14 @@
 
-.deck-header{
-  margin-left: auto;
-  margin-right: 2rem;
-  align-items: flex-end;
-}
 .deck-header img{
-  width: 23rem;
+  width: 100%;
   max-width: 23rem;
 }
 .deck-header h4{
   margin-top: 2rem;
+  color: black;
+  padding: .5rem;
+  box-shadow: .2rem .2rem .5rem grey;
+  white-space: nowrap;
 }
 .edit-deck-btn{
   color: white;
@@ -19,7 +18,7 @@
   display: inline-block;
   margin-top: 2rem;
   margin-left: 2rem;
-  padding: 1rem;
+  padding: .5rem 1rem;
   text-align: center;
 }
 
@@ -27,4 +26,54 @@
   text-decoration: none;
   color: white;
   transform: scale(1.1);
+}
+
+.empty-deck-container{
+  min-width: 27.5rem;
+  padding-left: 5rem;
+  width: 80%;
+  margin: 2rem .8rem 0rem 2rem;
+  padding: 20rem 5rem;
+  font-size: 3rem;
+  font-family: "Roboto",sans-serif;
+  font-weight: 800;
+  box-shadow: .2rem .2rem .5rem black;
+}
+
+.empty-deck-container > a{
+  margin: 0px;
+}
+@media screen and (max-width: 800px){
+  .deck{
+    margin-right: auto;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .deck-header{
+    margin-left: 2rem;
+    margin-right: auto;
+  }
+  .edit-deck-btn{
+    margin-left: 0px;
+    margin-right: 2rem;
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 500px){
+  .deck-header{
+    margin-left: 2rem;
+    margin-right: auto;
+  }
+}
+@media screen and (min-width: 801px){
+  .deck{
+    display: flex;
+    flex-direction: row;
+  }
+  .deck-header{
+    margin-left: auto;
+    margin-right: 2rem;
+    align-items: flex-end;
+    width: 50%;
+  }
 }

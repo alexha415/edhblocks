@@ -18,6 +18,9 @@
   padding: .3rem .7rem;
   white-space: nowrap;
 }
+.cart-btn:hover{
+  color: white;
+}
 .add-btn{
   left: 0;
   color: white;

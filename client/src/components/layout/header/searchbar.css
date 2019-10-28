@@ -7,6 +7,7 @@
   margin-bottom: 2rem;
   border-radius: 2rem;
   font-size: 1.5rem;
+  font-family: "Roboto",sans-serif;
   border: 2px solid transparent;
 }
 .restrict-checkbox:hover label{

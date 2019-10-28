@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, Fragment} from 'react'
 import Card from './Card';
 import {connect} from 'react-redux';
 import {filterCards} from '../../actions/searchActions';
@@ -14,11 +14,15 @@ const SearchList = ({searchType, search: {cards, filtered}, deck: {deckList, com
   filtered ? showCards = filtered : showCards = cards
   
   return (
-  <div className='grid search-grid'>
-    {showCards && showCards.length > 0 && showCards.map(card => {
-      return <Card key={card.id} card={card} commander={searchType}/>
-    })}
-  </div>
+  <Fragment>
+    {showCards && showCards.length > 0 ? 
+    <div className='grid search-grid'>
+      {showCards.map(card => {
+        return <Card key={card.id} card={card} commander={searchType}/>
+      })} 
+    </div>
+    : (showCards ? <p className='no-result-text'>No results</p> : null)}
+  </Fragment>
   )
 }
 
