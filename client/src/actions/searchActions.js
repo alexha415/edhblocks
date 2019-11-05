@@ -3,7 +3,8 @@ import {
     SEARCH_CARDS,
     FILTER_CARDS,
     SEARCH_COMMANDER,
-    CLEAR_SEARCH
+    CLEAR_SEARCH,
+    SEARCH_LOADING
 } from './types';
 
 const search_root = 'https://api.scryfall.com/cards/search';
@@ -46,6 +47,7 @@ export const searchCommander = (query) => async dispatch => {
         queryString += `${key}${query[key]}`
     })
     try {
+        dispatch(loading())
         const res = await fetch(`${search_root}?${queryString}`);
         const data = await res.json();
         dispatch({
@@ -85,4 +87,9 @@ export const clearSearch = () => async dispatch => {
     } catch (error) {
         
     }
+}
+export const loading = () => async dispatch => {
+    dispatch({
+        type: SEARCH_LOADING
+    })
 }

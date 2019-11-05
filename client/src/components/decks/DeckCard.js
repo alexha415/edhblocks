@@ -1,12 +1,12 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {setCurrent} from '../../actions/decksActions';
+import {setCurrent, deleteDeck} from '../../actions/decksActions';
 import {getDeck} from '../../actions/deckActions';
 import {withRouter} from 'react-router-dom';
 import './deckCard.css';
 
-const DeckCard = ({deck, setCurrent, getDeck, history}) => {
+const DeckCard = ({deck, setCurrent, getDeck, history, deleteDeck}) => {
     return (
         <div className="deck-card flex-container-col">
             <span className="deck-card-header">
@@ -24,15 +24,15 @@ const DeckCard = ({deck, setCurrent, getDeck, history}) => {
                     }}>
                 View
                 </a>
-                <Link to='/deck' onClick={()=>{
-                    setCurrent(deck._id).then( () => 
-                    getDeck(deck._id));
+                <a to='#' onClick={(e)=>{
+                    e.preventDefault();
+                    deleteDeck(deck._id);
                     }}>
                 Delete
-                </Link>
+                </a>
             </span>
         </div>
     )
 }
 
-export default connect(null, {setCurrent, getDeck})(withRouter(DeckCard))
+export default connect(null, {setCurrent, getDeck, deleteDeck})(withRouter(DeckCard))

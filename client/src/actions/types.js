@@ -3,7 +3,7 @@ export const SEARCH_CARDS = 'SEARCH_CARDS';
 export const FILTER_CARDS = 'FILTER_CARDS';
 export const SEARCH_COMMANDER = 'SEARCH_COMMANDER'; 
 export const CLEAR_SEARCH = 'CLEAR_SEARCH';
-export const SET_LOADING = 'SET_LOADING';
+export const SEARCH_LOADING = 'SEARCH_LOADING';
 
 export const GET_DECK = 'GET_DECK';
 export const DECK_FAIL = 'DECK_FAIL';
@@ -11,6 +11,7 @@ export const ADD_COMMANDER = 'ADD_COMMANDER';
 export const CLEAR_DECK = 'CLEAR_DECK';
 export const ADD_CART = 'ADD_CART';
 export const REMOVE_FROM_DECK = 'REMOVE_FROM_DECK';
+export const DECK_LOADING = 'DECK_LOADING';
 
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
@@ -22,6 +23,7 @@ export const LOGOUT_USER = 'LOGOUT_USER';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const USER_LOADED = 'USER_LOADED';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const USER_LOADING = 'USER_LOADING';
 
 export const GET_DECKS = 'GET_DECKS';
 export const ADD_DECK = 'ADD_DECK';
@@ -29,3 +31,4 @@ export const EDIT_DECK = 'EDIT_DECK';
 export const DELETE_DECK = 'DELETE_DECK';
 export const DECKS_ERROR = 'DECKS_ERROR';
 export const SET_CURRENT = 'SET_CURRENT';
+export const DECKS_LOADING = 'DECKS_LOADING';

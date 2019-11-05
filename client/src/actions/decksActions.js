@@ -4,11 +4,13 @@ ADD_DECK,
 EDIT_DECK,
 DECKS_ERROR,
 SET_CURRENT,
-GET_DECK
+DELETE_DECK,
+DECKS_LOADING
 } from './types';
 
 export const getDecks = () => async dispatch => {
   try {
+    dispatch(loading())
     const res = await fetch('/api/decks', {
       method: 'GET',
       headers: {
@@ -36,7 +38,9 @@ export const addDeck = (deck) => async dispatch => {
     cards,
     colorId
   }
-  try {
+  try {    
+
+    dispatch(loading())
     const res = await fetch('/api/decks', {
       method: 'POST',
       headers: {
@@ -59,7 +63,8 @@ export const addDeck = (deck) => async dispatch => {
 }
 
 export const editDeck = (deck) => async dispatch => {
-  try {
+  try {    
+    dispatch(loading())
     const res = await fetch(`/api/decks/${deck._id}`, {
       method: 'PUT',
       headers: {
@@ -84,7 +89,26 @@ export const editDeck = (deck) => async dispatch => {
 }
 
 export const deleteDeck = (did) => async dispatch => {
-
+  try {    
+    dispatch(loading())
+    const res = await fetch(`/api/decks/${did}`, {
+      method: 'DELETE',
+      headers: {
+        "Content-Type":"application/json",
+        "Authentication": JSON.parse(localStorage.getItem('token'))
+      }
+    })
+    
+    dispatch({
+      type: DELETE_DECK
+    })
+    dispatch(getDecks());
+  } catch (error) {
+    dispatch({
+      type: DECKS_ERROR,
+      payload: error.msg
+    })
+  }
 }
 
 export const setCurrent = (did) => dispatch => {
@@ -94,5 +118,10 @@ export const setCurrent = (did) => dispatch => {
       payload: did
     })
     resolve();
+  })
+}
+export const loading = () => async dispatch => {
+  dispatch({
+    type: DECKS_LOADING
   })
 }
