@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux';
 import {addCartToDeck} from '../../actions/deckActions';
-import {editDeck, addDeck} from '../../actions/decksActions';
+import {editDeck} from '../../actions/decksActions';
 import {clearCart} from '../../actions/cartActions';
 import CartItem from './CartItem';
 import {withRouter} from 'react-router-dom';
@@ -18,10 +18,11 @@ const DeckList = ({deck , cart:{ cardCart }, editDeck, addCartToDeck, clearCart,
   useEffect( () => {
     editDeck(deck);
     clearCart();
+    //eslint-disable-next-line
   }, [JSON.stringify(deck.deckList)]);
 
   return (
-    <div className = 'flex-container-col cart-container'>
+    <div className = 'flex-col cart-container'>
       <div className="cart-list">
         {cardCart.map(card => {
           return (<CartItem key={card.name} card={card}/>)

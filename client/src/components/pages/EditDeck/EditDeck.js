@@ -15,8 +15,8 @@ const EditDeck = ({deck: {_id}, match, getDeck}) => {
     //eslint-disable-next-line
   },[]);
   return (
-    <div className='flex-container-row cart'>
-      <div className="flex-container-col search-container">
+    <div className='flex-row cart'>
+      <div className="flex-col search-container">
         <h4>Search Cards</h4>
         <Searchbar/>
       <SearchList/>

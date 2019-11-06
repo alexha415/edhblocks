@@ -7,6 +7,7 @@ const PublicRoute = ({auth: {isAuthenticated, loading}, component: Component, lo
 
   useEffect( () => {
       loadUser();
+      //eslint-disable-next-line
   },[]);
 
   return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import ListCardItem from '../listcarditem/ListCardItem';
+import Card from '../Card/Card';
 import './cardTypeList.css';
 const CardTypeList = ({removeMode, handleClick, list, category}) => {
     return (
@@ -7,7 +7,7 @@ const CardTypeList = ({removeMode, handleClick, list, category}) => {
             <h4>{category}: {list ? list.length : '0'}</h4>
             <ul>
                 {list && list.map( card => {
-                    return <ListCardItem key = {card.name} removeMode={removeMode} handleClick={handleClick} card={card}/>
+                    return <Card key = {card.name} removeMode={removeMode} handleClick={handleClick} card={card}/>
                 })}
             </ul>
         </div>

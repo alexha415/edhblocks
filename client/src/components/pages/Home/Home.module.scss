@@ -1,0 +1,80 @@
+.home{
+  height: 100%;
+  position: relative;
+}
+
+.section{
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  position: relative;
+
+  & > p {
+    font-size: 3.5rem;
+    margin: 5rem 0;
+    animation: fadeInLeft 1s ease-out;
+  }
+}
+
+.header{
+  justify-content: center;
+  transition: background-color .5s;
+  & > h4{
+    display: inline-block;
+    font-size: 7rem;
+    letter-spacing: .5rem;
+    text-transform: uppercase;
+  }
+
+  // cascading effect for header
+  @for $i from 1 through 9 {
+    $duration: ($i * .2s) + .6s;
+    & > :nth-child(#{$i}) {
+      animation: fadeInTop (#{$duration}) ease-out;
+    }
+  }
+}
+.infoButton{
+  font-size: 3rem;
+  color: black;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@keyframes fadeInTop{
+  0%{
+    opacity: 0;
+    transform: translateY(-30%);
+  }
+  50%{
+    transform: translateY(10%);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes fadeInLeft{
+  0%{
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@media screen and (max-width: 520px){
+  .header{
+      & > h4{
+        font-size: 5rem;
+      }
+  }
+  .section{
+    & > p{
+      font-size: 2rem;
+    }
+  }
+}

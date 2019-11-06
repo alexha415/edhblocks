@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -14,14 +14,13 @@ import RegisterPage from './components/pages/Register/RegisterPage';
 import Header from './components/layout/header/Header';
 import PrivateRoute from './components/routing/PrivateRoute';
 import PublicRoute from './components/routing/PublicRoute';
-import {loadUser} from './actions/authActions';
 
 function App() {
 
   return (
     <Provider store={store}>
       <Router>
-        <div className="App flex-container-col">
+        <div className="App flex-col">
           <Header/>
           <Switch>
             <Route exact path='/' component={Home}/>

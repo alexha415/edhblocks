@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {registerUser} from '../../actions/authActions';
@@ -33,7 +33,7 @@ const Register = ({registerUser}) => {
     }
 
     return (
-        <div className='flex-container-col login-container'>
+        <div className='flex-col login-container'>
             <h4 className='auth-header'>Register</h4>
             <form onSubmit={onSubmit} className='login-form'>
                 <div className="input-group">

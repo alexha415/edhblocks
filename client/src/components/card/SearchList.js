@@ -8,6 +8,7 @@ const SearchList = ({searchType, search: {cards, filtered}, deck: {deckList, com
 
   useEffect( () => {
     filterCards([commander, ...deckList, ...cardCart]);
+    //eslint-disable-next-line
   }, [deckList, cards, cardCart]);
 
   let showCards;

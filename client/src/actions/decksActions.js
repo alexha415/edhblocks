@@ -3,8 +3,7 @@ GET_DECKS,
 ADD_DECK,
 EDIT_DECK,
 DECKS_ERROR,
-SET_CURRENT,
-GET_DECK
+SET_CURRENT
 } from './types';
 
 export const getDecks = () => async dispatch => {

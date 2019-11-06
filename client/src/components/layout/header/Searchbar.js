@@ -22,6 +22,7 @@ const Searchbar = ({ searchCards, colorId }) => {
      }, {order: '=edhrec'})
     //eslint-disable-next-line
   },[colorId]);
+  
   const onSubmit = async (e) => {
     e.preventDefault();
     const query = {
@@ -46,7 +47,7 @@ const Searchbar = ({ searchCards, colorId }) => {
   return (
     <Fragment>
       <form onSubmit={onSubmit} style={{width: '100%'}}>
-        <div className={`flex-container-row checkbox restrict-checkbox primary`}  onClick={onCheckboxClick}>
+        <div className={`flex-row checkbox restrict-checkbox primary`}  onClick={onCheckboxClick}>
           <label htmlFor={'restrict-color'}>Restrict Search To Deck Colors</label>
           <input type="checkbox" name={'restrict-color'} checked={restrictColorId} onClick={null}/>
           <span className='checkmark'></span>

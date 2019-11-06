@@ -7,6 +7,7 @@ const PrivateRoute = ({auth: {isAuthenticated, loading}, loadUser, component: Co
   
   useEffect( () => {
     loadUser();
+    //eslint-disable-next-line
   },[])
   return (
     <Route {...rest} render={(props) => {

@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect} from 'react'
 import {connect} from 'react-redux';
 import './checkbox.css';
 const Checkbox = ({name, color, setColor}) => {
@@ -6,6 +6,7 @@ const Checkbox = ({name, color, setColor}) => {
 
   useEffect(() => {
     setColor(color, checked);
+    //eslint-disable-next-line
   },[checked]);
 
   const changeChecked = () => {
@@ -13,7 +14,7 @@ const Checkbox = ({name, color, setColor}) => {
   }
 
   return (
-    <div className={`flex-container-row checkbox checkbox-${color}`} onClick={changeChecked}>
+    <div className={`flex-row checkbox checkbox-${color}`} onClick={changeChecked}>
       <label htmlFor={color}>{name}</label>
       <input type="checkbox" name={color} checked={checked} onChange={() => {}}/>
       <span className='checkmark'></span>

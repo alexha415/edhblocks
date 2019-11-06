@@ -23,7 +23,7 @@ const Header = ({logoutUser, auth: {isAuthenticated}}) => {
     </li>
   )
   return (
-    <div className="flex-container-row header primary">
+    <div className="flex-row header primary">
       <ul className='nav-bar'>
         <li className="nav-bar-item">
           <Link to="/" className="nav-bar-link">Home</Link>

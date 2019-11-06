@@ -27,7 +27,7 @@
         }
 
         return (
-            <div className='flex-container-col login-container'>
+            <div className='flex-col login-container'>
                 <h4 className='auth-header'>Login</h4>
                 <form onSubmit={onSubmit} className='login-form'>
                     <div className="input-group">
