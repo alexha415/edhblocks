@@ -1,9 +1,5 @@
 import React, {Fragment, useState, useEffect} from 'react'
-import {connect} from 'react-redux'
-import {Link, withRouter} from 'react-router-dom';
-import DeckContainer from'../../deck/DeckContainer/DeckContainer';
-import {getDeck, removeFromDeck} from '../../../actions/deckActions';
-import {editDeck} from '../../../actions/decksActions';
+import {Link} from 'react-router-dom';
 import './deck.css';
 
 
