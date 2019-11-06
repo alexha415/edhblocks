@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {setCurrent} from '../../actions/decksActions';
 import {getDeck} from '../../actions/deckActions';
@@ -8,15 +7,15 @@ import './deckCard.css';
 
 const DeckCard = ({deck, setCurrent, getDeck, history}) => {
     return (
-        <div className="deck-card flex-container-col">
+        <div className="deck-card flex-col">
             <span className="deck-card-header">
                 <span>{deck.commander.name}</span>
             </span>
             <span className="deck-card-body">
                 <img src={deck.commander.image} alt=""/>
             </span>
-            <span className="flex-container-row deck-card-footer">
-                <a onClick={()=>{
+            <span className="flex-row deck-card-footer">
+                <a href="#/" onClick={()=>{
                     setCurrent(deck._id).then( () => 
                     getDeck(deck._id)).then( () => {
                         history.push(`/deck/${deck._id}`);
@@ -24,12 +23,12 @@ const DeckCard = ({deck, setCurrent, getDeck, history}) => {
                     }}>
                 View
                 </a>
-                <Link to='/deck' onClick={()=>{
+                <a href="#/" to='/deck' onClick={()=>{
                     setCurrent(deck._id).then( () => 
                     getDeck(deck._id));
                     }}>
                 Delete
-                </Link>
+                </a>
             </span>
         </div>
     )

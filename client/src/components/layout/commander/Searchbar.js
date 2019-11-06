@@ -14,6 +14,7 @@ const Searchbar = ({submit, send, search: {commanders}}) => {
 
   useEffect( () => {
     send(text);
+    //eslint-disable-next-line
   },[text]);
 
   const onChange = (e) => {

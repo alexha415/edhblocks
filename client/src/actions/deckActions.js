@@ -6,8 +6,7 @@ import {
   GET_DECK,
   DECK_FAIL,
   EDIT_DECK,
-  DECKS_ERROR,
-  SET_LOADING
+  DECKS_ERROR
 } from './types';
 
 export const addCartToDeck = (cards) => (dispatch) => {

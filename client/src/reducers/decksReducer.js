@@ -1,7 +1,6 @@
 import {
   GET_DECKS,
   ADD_DECK,
-  EDIT_DECK,
   SET_CURRENT
 } from '../actions/types';
 
@@ -20,19 +19,12 @@ export default (state = initialState, action) => {
         loading: false,
         errors: null
       }
-      case ADD_DECK :
-        return {
-          ...state,
-          decks: action.payload,
-          loading: false,
-          errors: null
-        }
       case SET_CURRENT :
         return {
           ...state,
           current: action.payload
         }
-        case ADD_DECK :
+      case ADD_DECK :
           return {
             ...state,
             decks: action.payload,

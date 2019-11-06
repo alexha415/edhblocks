@@ -1,0 +1,20 @@
+.information{
+  margin: 10rem 2rem 0rem 2rem;
+  color: black;
+  & > h4{
+    text-align: center;
+    font-size: 7rem;
+    letter-spacing: .2rem;
+    border-bottom: 2px solid black;
+  }
+}
+@media screen and (max-width: 1000px){
+  .sections{
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 520px){
+  .information > h4{
+    font-size: 5rem;
+  }
+}

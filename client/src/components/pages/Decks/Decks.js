@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import DeckCard from '../../decks/DeckCard';
-import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getDecks} from '../../../actions/decksActions';
 import './decks.css';

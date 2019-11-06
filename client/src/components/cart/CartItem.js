@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux';
 import {removeCardFromCart} from '../../actions/cartActions';
-import style from './cart.css';
 
 const DeckItem = ({card, removeCardFromCart}) => {
 

@@ -12,7 +12,7 @@ const DeckContainer = ({removeMode, handleClick, deck : {deckList, categories}})
   const sortDeck = () => {
     categories.forEach( category => {
       let cardList = deckList.filter(card => {
-        return card.cardType === category
+        return card.cardType === category 
       })
       cardList.length > 0 && sortedDeck.push(cardList);
     })
@@ -21,7 +21,8 @@ const DeckContainer = ({removeMode, handleClick, deck : {deckList, categories}})
     })
   }
 
-  {deckList && sortDeck() }
+  if(deckList) sortDeck()
+
   const emptyDeckDisplay = () => {
     return (
     <div className="empty-deck-container">

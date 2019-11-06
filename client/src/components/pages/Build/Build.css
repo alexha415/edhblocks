@@ -1,7 +1,7 @@
-.home{
+.build{
   align-items: center;
 }
-.home h4{
+.build > h4{
   font-size: 3rem;
   margin: 2rem 0px;
 }

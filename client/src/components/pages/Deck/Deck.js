@@ -1,7 +1,7 @@
 import React, {Fragment, useState, useEffect} from 'react'
 import {connect} from 'react-redux'
 import {Link, withRouter} from 'react-router-dom';
-import DeckContainer from '../../deck/deckContainer/DeckContainer';
+import DeckContainer from'../../deck/DeckContainer/DeckContainer';
 import {getDeck, removeFromDeck} from '../../../actions/deckActions';
 import {editDeck} from '../../../actions/decksActions';
 import './deck.css';
@@ -12,6 +12,7 @@ const Deck = ({deck: {commander, _id},getDeck, removeFromDeck, match}) => {
         if(!_id && _id !== match.params.id){
             getDeck(match.params.id);
         }
+        //eslint-disable-next-line
     },[]);
     const toggleRemoveMode = (e) => {
         e.preventDefault();
@@ -49,9 +50,9 @@ const Deck = ({deck: {commander, _id},getDeck, removeFromDeck, match}) => {
             setRemovalList(newList);
     }
     return (
-        <div className='deck flex-container-row'>
+        <div className='deck flex-row'>
             <DeckContainer removeMode={removeMode} handleClick={handleRemoveClick}/>
-            <div className='flex-container-col deck-header'>
+            <div className='flex-col deck-header'>
                 <h4>{commander && commander.name}</h4>
                 {<img src={commander && commander.image} alt = 'Commander'/>}
                 <span>
