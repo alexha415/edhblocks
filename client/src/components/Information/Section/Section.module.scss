@@ -2,17 +2,17 @@
   flex: 1 1 50%;
   margin: 2rem;
   padding: 3rem;
-  border: 5px solid black;
   opacity: .5;
-  transition: opacity .5s, box-shadow .5s, font-size .2s;
+  transition: opacity .5s, box-shadow .5s, border .5s;
   animation: fadeIn 1s;
+  border: 5px solid transparent;
 
   &:hover{
     opacity: 1;
+    border: 5px solid black;
     box-shadow: .5rem .5rem 1rem black;
     .description{
       opacity: 1;
-      font-size: 3.1rem;
     }
   }
 }
