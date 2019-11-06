@@ -1,5 +1,9 @@
 import React, {Fragment, useState, useEffect} from 'react'
-import {Link} from 'react-router-dom';
+import {connect} from 'react-redux'
+import {Link, withRouter} from 'react-router-dom';
+import DeckContainer from'../../deck/DeckContainer/DeckContainer';
+import {getDeck, removeFromDeck} from '../../../actions/deckActions';
+import {editDeck} from '../../../actions/decksActions';
 import './deck.css';
 
 
@@ -53,16 +57,16 @@ const Deck = ({deck: {deckList, commander, _id},getDeck, removeFromDeck, match})
         </div>
     }
     return (
-        <div className='deck flex-row'>
-            <DeckContainer removeMode={removeMode} handleClick={handleRemoveClick}/>
-            <div className='flex-col deck-header'>
-                <h4>{commander && commander.name}</h4>
-                {<img src={commander && commander.image} alt = 'Commander'/>}
-                <span>
-                    {removeMode ? removeButtons : defaultButtons}
-                </span>
-            </div>
+    <div className='deck flex-row'>
+        <DeckContainer removeMode={removeMode} handleClick={handleRemoveClick}/>
+        <div className='flex-col deck-header'>
+            <h4>{commander && commander.name}</h4>
+            {<img src={commander && commander.image} alt = 'Commander'/>}
+            <span>
+                {removeMode ? removeButtons : defaultButtons}
+            </span>
         </div>
+    </div>
     )
 }
 
