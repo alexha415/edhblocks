@@ -58,11 +58,11 @@ ul{
   background-color: rgb(250, 209, 96)
 }
 h1,h2,h3,h4{
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   -moz-user-select: none;
   -webkit-user-select: none;
 }
 
 p {
-  font-family: "Lato", sans-serif;
+  font-family: "Roboto", sans-serif;
 }

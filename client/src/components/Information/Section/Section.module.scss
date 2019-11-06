@@ -4,7 +4,7 @@
   padding: 3rem;
   border: 5px solid black;
   opacity: .5;
-  transition: opacity .5s, box-shadow .5s;
+  transition: opacity .5s, box-shadow .5s, font-size .2s;
   animation: fadeIn 1s;
 
   &:hover{
@@ -12,6 +12,7 @@
     box-shadow: .5rem .5rem 1rem black;
     .description{
       opacity: 1;
+      font-size: 3.1rem;
     }
   }
 }
@@ -39,7 +40,6 @@
   font-size: 3rem;
   margin-top: 2rem;
   text-align: justify;
-  opacity: 0;
   transition: opacity 1s;
 }
 

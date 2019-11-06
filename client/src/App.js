@@ -14,6 +14,7 @@ import RegisterPage from './components/pages/Register/RegisterPage';
 import Header from './components/layout/header/Header';
 import PrivateRoute from './components/routing/PrivateRoute';
 import PublicRoute from './components/routing/PublicRoute';
+import Build from './components/pages/Build/Build';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <Header/>
           <Switch>
             <Route exact path='/' component={Home}/>
+            <Route exact path='/build' component={Build}/>
             <PrivateRoute exact path='/deck/:id' component={Deck}/>
             <PrivateRoute exact path='/decks' component={Decks}/>
             <PrivateRoute exact path='/edit/:id' component={EditDeck}/>

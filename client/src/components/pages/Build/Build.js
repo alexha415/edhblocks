@@ -4,7 +4,7 @@ import CommanderList from '../../layout/commander/CommanderList';
 import {loadUser} from '../../../actions/authActions';
 import {connect} from 'react-redux';
 
-import './home.css';
+import './Build.css';
 
 const Build = ({loadUser}) => {
   useEffect( () => {

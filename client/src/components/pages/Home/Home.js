@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 import styles from './Home.module.scss';
 import Information from '../../Information/Information';
 
@@ -18,6 +19,7 @@ const Home = () => {
           <h4>S</h4>
         </div>
         <p>Welcome to EDHBlocks, a deck-building website for the popular card game Magic: The Gathering&copy; by Wizards of the Coast</p>
+        <Link to="/build" className={styles.startButton}>Get Started</Link>
         <a href="#home__info-container" className={`${styles.infoButton}`}>Learn More</a>
       </div>
       <div id='home__info-container'className={`${styles.infoContainer} flex-row`}>

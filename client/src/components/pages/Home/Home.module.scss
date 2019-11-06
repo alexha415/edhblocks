@@ -12,7 +12,7 @@
   & > p {
     font-size: 3.5rem;
     margin: 5rem 0;
-    animation: fadeInLeft 1s ease-out;
+    animation: fadeIn 2s ease-out;
   }
 }
 
@@ -34,13 +34,41 @@
     }
   }
 }
-.infoButton{
-  font-size: 3rem;
+.startButton{
+  display: inline-block;
+  width: fit-content;
+  align-self: center;
   color: black;
+  font-size: 3rem;
+  font-family: "Lato", sans-serif;
+  animation: fadeIn 2s ease-out;
+}
+.infoButton{
   position: absolute;
   bottom: 10%;
   left: 50%;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  font-size: 3rem;
+  font-family: "Lato", sans-serif;
+  color: black;
+  border: 2px solid black;
+  border-radius: .5rem;
   transform: translateX(-50%);
+  transition: background-color .5s, transform .5s, box-shadow .5s;
+  animation: fadeIn 2s ease-out;
+}
+.infoButton:hover{
+  transform: translate(-50%, -20%);
+  box-shadow: .5rem .5rem 1rem black;
+}
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
 }
 @keyframes fadeInTop{
   0%{
