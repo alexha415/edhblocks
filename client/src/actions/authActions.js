@@ -4,7 +4,8 @@ LOGOUT_USER,
 REGISTER_USER,
 USER_LOADED,
 AUTH_ERROR,
-LOGIN_FAIL
+LOGIN_FAIL,
+USER_LOADING
 } from './types';
 
 
@@ -13,6 +14,8 @@ export const loadUser = () => async (dispatch) => {
      let token = localStorage.getItem('token');
      if (token) token = JSON.parse(token);
     try {
+        dispatch(loading());
+
         const res = await fetch('/api/auth', {
             method: 'GET',
             headers: {
@@ -38,6 +41,8 @@ export const loadUser = () => async (dispatch) => {
 //attempt to load user
 export const registerUser = (user) => async dispatch => {
     try {
+        
+        dispatch(loading());
         const res = await fetch('/api/users', {
             method: 'POST',
             body: JSON.stringify(user),
@@ -66,6 +71,8 @@ export const logoutUser = () => async dispatch => {
 }
 export const loginUser = (user) => async dispatch => {
     try {
+        
+        dispatch(loading());
         const res = await fetch('/api/auth', {
             method: 'POST',
             body: JSON.stringify(user),
@@ -89,4 +96,9 @@ export const loginUser = (user) => async dispatch => {
             payload: err
         }) 
     }
+}
+export const loading = () => async dispatch => {
+    dispatch({
+        type: USER_LOADING
+    })
 }

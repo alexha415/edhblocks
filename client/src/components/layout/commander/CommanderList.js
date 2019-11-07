@@ -2,8 +2,9 @@ import React, {Fragment} from 'react'
 import Card from '../../card/Card';
 import {connect} from 'react-redux';
 import './commanderList.css';
+import Spinner from '../spinner/Spinner';
 
-const CommanderList = ({search: {commanders}}) => {
+const CommanderList = ({search: {commanders, loading}}) => {
 
   const searchResults = () => {
     return <div className='container card-list-container'>
@@ -17,11 +18,11 @@ const CommanderList = ({search: {commanders}}) => {
     return <p className='no-result-text'>No Results</p>
   }
   return (
-    <Fragment>
-      {commanders && commanders.length > 0 ?
-        searchResults() : emptySearch()
-      }
-    </Fragment>
+  <div className='container card-list-container'>
+    {loading ? <Spinner/> : commanders && commanders.map(card => {
+      return <Card key={card.id} card={card} commander={card}/>
+    })}
+  </div>
   )
 }
 

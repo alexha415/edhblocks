@@ -88,7 +88,7 @@ router.put('/:id', auth, async (req, res) => {
         res.status(500).send('Server Error');
     }  
 })
-router.delete('/', auth, async (req, res) => {
+router.delete('/:id', auth, async (req, res) => {
     try {
         let deck = await Deck.findById(req.params.id);
         if(!deck){
