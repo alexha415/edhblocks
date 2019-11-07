@@ -1,5 +1,6 @@
 .build{
   align-items: center;
+  position: relative;
 }
 .build > h4{
   font-size: 3rem;

@@ -1,7 +1,10 @@
 .search-bar{
-  width: 100%;
-  box-shadow: 0rem .4rem .5rem black;
   margin-bottom: 2rem;
+  & > input{
+  }
+  &  > .search-icon{
+    display: inline-block;
+  }
 }
 .restrict-checkbox{
   margin-bottom: 2rem;

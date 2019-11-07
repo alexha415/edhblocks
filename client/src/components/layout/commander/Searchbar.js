@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {connect} from 'react-redux';
-import './searchbar.css';
+import './searchbar.scss';
 
 const Searchbar = ({submit, send, search: {commanders}}) => {
   
@@ -27,11 +27,13 @@ const Searchbar = ({submit, send, search: {commanders}}) => {
   }
 
   return (
-    <div className="input-group search-bar">   
-      <input type="text" className='form-control' value={text} placeholder='Search for a Commander...' name='text' onChange={onChange}/>
-      <div className="input-group-append">
-        <a href="#/" className='btn btn-outline-secondary' onClick={onSubmit}>
-          <i className='fa fa-search'></i>
+    <div className="input-group search-bar flex-row">
+      <div className='inputContainer'>
+        <input type="text" className='form-control' value={text} placeholder='Search for a Commander...' name='text' onChange={onChange}/>
+      </div>   
+      <div className='flex-col search-btn'>
+        <a href="#/" className='btn btn-outline-secondary' >
+          <i className='search-icon fa fa-search' onClick={onSubmit}></i>
         </a>
       </div>  
     </div>

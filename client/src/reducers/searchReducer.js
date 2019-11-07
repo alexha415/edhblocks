@@ -42,7 +42,7 @@ export default (state = initialState, action) => {
         case CLEAR_SEARCH:
             return {
                 ...state,
-                commanders: [],
+                commanders: null,
                 loading: false,
                 error: null
             }

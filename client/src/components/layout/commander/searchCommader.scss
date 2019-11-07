@@ -1,3 +1,10 @@
+.searchForm{
+  width: 70%; 
+  margin: 2rem 0rem;
+  & > h4 {
+    font-size: 5rem;
+  }
+}
 .checkbox-container{
   justify-content: space-between;
   margin-bottom: 2rem;
