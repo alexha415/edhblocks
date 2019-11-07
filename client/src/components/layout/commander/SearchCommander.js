@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {searchCommander} from '../../../actions/searchActions';
 import Checkbox from './checkbox/Checkbox';
 import Searchbar from './Searchbar';
-import './searchCommader.css';
+import './searchCommader.scss';
 
 const SearchCommander = ({searchCommander}) => {
   const [text, setText] = useState('');
@@ -39,8 +39,8 @@ const SearchCommander = ({searchCommander}) => {
   }
   return (
     <Fragment>
-      <form onSubmit={onSubmit} style ={{width: '70%', marginBottom: '2rem'}}>
-      <h4>Search For A Commander</h4>
+      <form className='searchForm' onSubmit={onSubmit}>
+      <h4>Pick Your Commander</h4>
         <div className="flex-row checkbox-container">
           <Checkbox name='White' color='W' setColor={setColor}/>
           <Checkbox name='Blue' color='U' setColor={setColor}/>

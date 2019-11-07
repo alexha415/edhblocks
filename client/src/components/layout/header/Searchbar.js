@@ -2,7 +2,7 @@ import React,{useState, Fragment, useEffect} from 'react'
 
 import {connect} from 'react-redux';
 import {searchCards} from '../../../actions/searchActions';
-import './searchbar.css';
+import './searchbar.scss';
 
 const Searchbar = ({ searchCards, colorId }) => {
 
@@ -52,8 +52,10 @@ const Searchbar = ({ searchCards, colorId }) => {
           <input type="checkbox" name={'restrict-color'} checked={restrictColorId} onClick={null}/>
           <span className='checkmark'></span>
         </div>
-        <div className="input-group search-bar">   
+
+        <div className="input-group search-bar flex-row">   
           <input type="text" className='form-control' value={text} htmlFor='text' placeholder='Search...' name='text' onChange={onChange}/>
+
           <div className="input-group-append">
             <a href="#/" className='btn btn-outline-secondary' onClick={onSubmit}>
               <i className='fa fa-search' style={{height: '100%'}}></i>

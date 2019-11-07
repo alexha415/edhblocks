@@ -1,18 +1,16 @@
 import React, {useEffect, useState} from 'react'
-import {clearSearch} from '../../actions/searchActions';
-import {addCard} from '../../actions/cartActions';
-import {addCommander} from '../../actions/deckActions';
-import {addDeck} from '../../actions/decksActions';
-import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
+import CardImage from './CardImage/CardImage';
 
-const Card = ({card, addCard, addCommander, commander, clearSearch, addDeck, history}) => {
+import './card.scss';
+
+const Card = ({card, addCard, handleClick}) => {
 
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
   const [cmc, setCmc] = useState('');
   const [id, setId] = useState('');
   const [colorId, setColorId] = useState('');
+
 
   useEffect( () => {
     try {
@@ -31,9 +29,8 @@ const Card = ({card, addCard, addCommander, commander, clearSearch, addDeck, his
     }
     //eslint-disable-next-line
   },[])
-  
   const onClick = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const newCard = {
       name,
       id,
@@ -42,20 +39,21 @@ const Card = ({card, addCard, addCommander, commander, clearSearch, addDeck, his
       colorId: parseColorId(),
       cardType: setCategory(),
     }
-    if(commander){
-      addCommander(newCard);
-      clearSearch();
-      addDeck({
-        commander: newCard,
-        cards: [],
-        colorId: parseColorId()
-      })
-      history.push('/decks');
-    }else{
-      addCard(newCard);
-    }
+    handleClick(newCard);
   }
-  
+  const deckClick = (e) => {
+    e.preventDefault();
+    const newCard = {
+      name,
+      id,
+      image,
+      cmc,
+      colorId: parseColorId(),
+      cardType: setCategory(),
+    }
+    addCard(newCard);
+  }
+
 const setCategory = () => {
   const arr = card.type_line.split(' ');
   if(arr[0] === 'Legendary'){
@@ -74,12 +72,8 @@ const parseColorId = () => {
 }
 
   return (
-    <div>
-      <a href="#/" onClick={onClick}>
-        <img className='card-img' src={image} alt="Card Loading..."/>
-      </a>
-    </div>
+    <img src={image} alt={name} className={`card-image` + (handleClick ? ' clickable' : '')} onClick={handleClick ? onClick : null}/>
   )
 }
 
-export default connect(null,{addCard,addCommander,clearSearch,addDeck})(withRouter(Card))
+export default Card
