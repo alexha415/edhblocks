@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react'
-import ImageModal from '../../modal/ImageModal';
+import ImageModal from '../../modal/ImageModal/ImageModal';
 import {connect} from 'react-redux';
 import {removeFromDeck} from '../../../actions/deckActions';
 import './Card.css';

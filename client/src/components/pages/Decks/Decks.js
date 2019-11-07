@@ -3,21 +3,20 @@ import DeckCard from '../../decks/DeckCard';
 import {connect} from 'react-redux';
 import {getDecks} from '../../../actions/decksActions';
 import './decks.css';
+import Spinner from '../../layout/spinner/Spinner';
 
-const Decks = ({getDecks, decks: {decks}}) => {
+const Decks = ({getDecks, decks: {decks, loading}}) => {
 
   useEffect( () => {
     getDecks();
     //eslint-disable-next-line
   },[]);
   return (
-    <div className="decks flex-container-col">
-      <div className="grid decks-grid" style={{marginTop: '2rem'}}>
-        {decks && decks.length > 0 && decks.map(deck =>{
-          return <DeckCard key={deck._id} deck={deck}/>
-        }
-        )}
-      </div>
+    <div className="grid decks-grid" style={{marginTop: '2rem'}}>
+      {loading ? <Spinner/> : decks && decks.length > 0 && decks.map(deck =>{
+        return <DeckCard key={deck._id} deck={deck}/>
+      }
+      )}
     </div>
     
   )

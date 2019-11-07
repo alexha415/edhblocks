@@ -1,5 +1,5 @@
 import React from 'react'
-import './modal.css';
+import './ImageModal.css';
 
 const ImageModal = ({show, img}) => {
     const modalClass = show ? 'modal display-modal' : 'modal hide-modal'

@@ -4,7 +4,8 @@ import {
     AUTH_ERROR,
     USER_LOADED,
     LOGOUT_USER,
-    LOGIN_FAIL
+    LOGIN_FAIL,
+    USER_LOADING
 } from '../actions/types';
 
 const initialState = {
@@ -48,6 +49,11 @@ export default (state = initialState, action) => {
                 isAuthenticated: true,
                 loading: false,
                 error: null
+            }
+        case USER_LOADING :
+            return {
+                ...state,
+                loading: true
             }
         case AUTH_ERROR :
             return {

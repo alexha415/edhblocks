@@ -1,0 +1,81 @@
+
+.modal{
+  border: solid black;
+  background-color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  opacity: 1;
+  padding: 2rem;
+  white-space: nowrap;
+  box-shadow: .5rem .5rem 1rem black;
+  animation: fadeIn .5s ease-out;
+}
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.cover{
+  z-index: 2;
+  background-color: black;
+  opacity: .5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+}
+.form{
+  flex: 1 1 60%;
+  color: black;
+  padding: 0rem 2rem;
+}
+.imageContainer{
+  flex: 0 0 40%;
+  justify-content: center;
+  & > img{
+    width: 20vw;
+  }
+}
+.inputContainer{
+  & > label{
+    display: block;
+    font-size: 1.6rem;
+  }
+  &:nth-child(2){
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    flex: 0 0 50%;
+  }
+  & > textarea{
+    height: 100%;
+    resize: none;
+    font-family: 'Roboto', sans-serif;
+  }
+  & > input, & > textarea{
+    width: 100%;
+  }
+}
+.btnContainer{
+  margin-top: auto;
+  white-space: nowrap;
+}
+.btn{
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  font-size: 1.3rem;
+  border: solid black;
+  border-radius: .5rem;
+  padding: .4rem .8rem;
+  &:first-child{
+    margin-right: 2rem;
+  }
+}

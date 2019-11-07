@@ -3,7 +3,9 @@
     import './login.css';
     import {connect} from 'react-redux';
     import {loginUser} from '../../actions/authActions';
-    const Login = ({loginUser}) => {
+    import Spinner from '../layout/spinner/Spinner';
+
+    const Login = ({loginUser, loading}) => {
         
         
         const [formData, setFormData] = useState({
@@ -44,9 +46,12 @@
                         <Link className='auth-link' to='/register'>Sign Up</Link>
                     </div>
                 </form>
+                {loading ? <Spinner/> : ''}
             </div>
         )
     }
     
-    export default connect(null,{loginUser})(Login)
+    export default connect( state => ({
+        loading: state.auth.loading
+    }),{loginUser})(Login)
     

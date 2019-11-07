@@ -5,7 +5,8 @@ import {
   REMOVE_FROM_DECK,
   GET_DECK,
   DECK_FAIL,
-  SET_LOADING
+  DECK_LOADING
+
 } from "../actions/types"
 
 const initialState = {
@@ -81,7 +82,7 @@ export default (state = initialState, action) => {
           error: action.payload,
           loading: false
         }
-      case SET_LOADING:
+      case DECK_LOADING:
         return {
           ...state,
           loading: true

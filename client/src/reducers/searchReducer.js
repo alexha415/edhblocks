@@ -2,7 +2,8 @@ import {
 SEARCH_CARDS,
 FILTER_CARDS,
 SEARCH_COMMANDER,
-CLEAR_SEARCH
+CLEAR_SEARCH,
+SEARCH_LOADING
  } from "../actions/types"
 
 const initialState = {
@@ -42,9 +43,14 @@ export default (state = initialState, action) => {
         case CLEAR_SEARCH:
             return {
                 ...state,
-                commanders: [],
+                commanders: null,
                 loading: false,
                 error: null
+            }
+        case SEARCH_LOADING:
+            return {
+                ...state,
+                loading: true
             }
         default : 
             return{
