@@ -11,9 +11,9 @@ const DeckCard = ({deck, setCurrent, getDeck, history, deleteDeck}) => {
             <span className="deck-card-header">
                 <span>{deck.commander.name}</span>
             </span>
-            <span className="deck-card-body">
+            <div className="deck-card-body">
                 <img src={deck.commander.image} alt=""/>
-            </span>
+            </div>
             <span className="flex-row deck-card-footer">
                 <a href="#/" onClick={()=>{
                     setCurrent(deck._id).then( () => 

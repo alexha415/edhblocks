@@ -22,24 +22,24 @@ const CommanderList = ({search: {commanders, loading}}) => {
   }
   const searchResults = () => {
     return <div className='container card-list-container'>
-      {commanders.map(card => {
+      {loading ? <Spinner/> : commanders.map(card => {
         return (
           <Card key={card.id} card={card} commander={card} handleClick={showModal ? null : onClick}/>
         )
       })}
       {modal()}
     </div>
-    }
+  }
   const emptySearch = () => {
     if(commanders)
     return <p className='no-result-text'>No Results</p>
   }
   return (
-  <div className='container card-list-container'>
-    {loading ? <Spinner/> : commanders && commanders.map(card => {
-      return <Card key={card.id} card={card} commander={card}/>
-    })}
-  </div>
+    <Fragment>
+      {commanders && commanders.length > 0 ?
+        searchResults() : emptySearch()
+      }
+    </Fragment>
   )
 }
 

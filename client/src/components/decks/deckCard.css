@@ -1,6 +1,6 @@
 .deck-card{
     margin: 1rem;
-    flex-wrap: wrap;
+    width: fit-content;
 }
 .deck-card-header{
     background-color: grey;
@@ -18,11 +18,12 @@
     font-size: 1.3rem;
 }
 .deck-card-body{
-    flex: 2 1 auto;
+    display: block;
+    width: fit-content;
     margin-bottom: .5rem;
 }
-.deck-card-body img{
-    width: 20rem;
+.deck-card-body > img{
+    width: 10rem;
 }
 .deck-card-footer{
     flex: 1 2 5rem;
@@ -31,7 +32,8 @@
     box-shadow: .2rem .2rem .5rem grey;
 }
 
-.deck-card-footer a{
+.deck-card-footer > a{
+    display: inline-block;
     text-decoration: none;
     color: black;
     font-size: 1.3rem;
@@ -42,6 +44,6 @@
     align-self: center;
     margin: 0rem auto;
 }
-.deck-card-footer a:hover{
+.deck-card-footer > a:hover{
     cursor: pointer;
 }
