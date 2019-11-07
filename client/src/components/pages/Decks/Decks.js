@@ -12,7 +12,7 @@ const Decks = ({getDecks, decks: {decks, loading}}) => {
     //eslint-disable-next-line
   },[]);
   return (
-    <div className="grid decks" style={{marginTop: '2rem'}}>
+    <div className="grid decks-grid" style={{marginTop: '2rem'}}>
       {loading ? <Spinner/> : decks && decks.length > 0 && decks.map(deck =>{
         return <DeckCard key={deck._id} deck={deck}/>
       }
