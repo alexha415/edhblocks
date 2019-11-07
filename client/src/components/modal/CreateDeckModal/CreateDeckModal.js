@@ -31,11 +31,11 @@ const CreateDeckModal = ({card, cancel, addCommander, addDeck, clearSearch, hist
           </div>
           <div className={styles.inputContainer}>
             <label htmlFor="Description">Description</label>
-            <textarea type="text" name="description" maxLength='256' placeholder="Describe your deck" required wrap/>
+            <textarea type="text" name="description" maxLength='256' placeholder="Describe your deck" required/>
           </div>
           <div className={styles.btnContainer}>
-            <a href="#" className={styles.btn} onClick={onSubmit}>Create Deck</a>
-            <a href="#" className={styles.btn} onClick={cancel}>Cancel</a>
+            <a href="#/" className={styles.btn} onClick={onSubmit}>Create Deck</a>
+            <a href="#/" className={styles.btn} onClick={cancel}>Cancel</a>
           </div>
         </form>
       </div>

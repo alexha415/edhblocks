@@ -1,16 +1,10 @@
 import React, {Fragment, useState} from 'react'
-import {withRouter} from 'react-router-dom';
-
 import {connect} from 'react-redux';
-import {clearSearch} from '../../../actions/searchActions';
-import {addCommander} from '../../../actions/deckActions';
-import {addDeck} from '../../../actions/decksActions';
-
 import Card from '../../card/Card';
 import CreateDeckModal from '../../modal/CreateDeckModal/CreateDeckModal';
 import './commanderList.css';
 
-const CommanderList = ({search: {commanders}, addDeck, clearSearch, addCommander, history}) => {
+const CommanderList = ({search: {commanders}}) => {
 
   const [showModal, setShowModal] = useState(false);
   const [clickedCard, setClickedCard] = useState(null);
@@ -51,4 +45,4 @@ const CommanderList = ({search: {commanders}, addDeck, clearSearch, addCommander
 const mapStateToProps = (state) => ({
   search: state.search
 })
-export default connect(mapStateToProps, {clearSearch, addCommander, addDeck})(withRouter(CommanderList))
+export default connect(mapStateToProps)(CommanderList)
