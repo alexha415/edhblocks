@@ -32,3 +32,6 @@ export const DELETE_DECK = 'DELETE_DECK';
 export const DECKS_ERROR = 'DECKS_ERROR';
 export const SET_CURRENT = 'SET_CURRENT';
 export const DECKS_LOADING = 'DECKS_LOADING';
+
+export const GET_SYMBOLS = 'GET_SYMBOLS';
+export const SYMBOL_FETCH_FAIL = 'SYMBOL_FETCH_FAIL';

@@ -16,6 +16,14 @@ const deckSchema = mongoose.Schema({
   colorId: {
     type: String,
     required: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
   }
 })
 

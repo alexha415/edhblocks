@@ -34,22 +34,26 @@ router.get( '/:id', auth, async (req,res) => {
 
 router.post( '/', [
     auth,
-    check('commander', 'Please provide a valid commander').not().isEmpty(),
-    check('colorId', 'Please provide a valid color identity').not().isEmpty()
+    check('commander', 'Please provide a valid commander for your deck').not().isEmpty(),
+    check('colorId', 'Please provide a valid color identity for your deck').not().isEmpty(),
+    check('name', 'Please provide a valid name for your deck').not().isEmpty(),
+    check('description', 'Please provide a valid description for your deck').not().isEmpty()
     ], async (req,res) => {
 
         const errors = validationResult(req);
         if(!errors.isEmpty()){
             res.status(400).json({errors: errors.array()})
         }
-        const {commander, colorId, cards} = req.body;
+        const {commander, colorId, cards, name, description} = req.body;
         try {
 
             const newDeck = new Deck({
                 user: req.user.id,
                 commander,
                 cards,
-                colorId
+                colorId,
+                name,
+                description
             })
             await newDeck.save();
             const decks = await Deck.find({user: req.user.id});
@@ -63,12 +67,14 @@ router.post( '/', [
 
 router.put('/:id', auth, async (req, res) => {
 
-    const {commander, deckList, colorId} = req.body;
+    const {commander, deckList, colorId, name, description} = req.body;
 
     const commanderFields = {};
     if(commander) commanderFields.commander = commander;
     if(deckList) commanderFields.deckList = deckList;
     if(colorId) commanderFields.colorId = colorId;
+    if(name) commanderFields.name = name;
+    if(description) commanderFields.description = description;
     try {
         let deck = await Deck.findById(req.params.id);
         if(!deck){

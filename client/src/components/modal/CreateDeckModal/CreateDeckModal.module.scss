@@ -39,9 +39,9 @@
 }
 .imageContainer{
   flex: 0 0 40%;
-  justify-content: center;
   & > img{
     width: 20vw;
+    align-self: center;
   }
 }
 .inputContainer{
@@ -52,7 +52,7 @@
   &:nth-child(2){
     margin-top: 1rem;
     margin-bottom: 1rem;
-    flex: 0 0 50%;
+    flex: 0 .5 50%;
   }
   & > textarea{
     height: 100%;
@@ -77,5 +77,18 @@
   padding: .4rem .8rem;
   &:first-child{
     margin-right: 2rem;
+  }
+}
+@media screen and (max-width: 720px){
+  .imageContainer > img{
+    width: 40vw;
+  }
+}
+@media screen and (max-width: 475px){
+  .modal{
+    flex-direction: column;
+  }
+  .imageContainer > img{
+    width: 50vw;
   }
 }

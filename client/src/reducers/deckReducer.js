@@ -23,6 +23,8 @@ const initialState = {
     'Planeswalker',
     'Creature'
   ],
+  name: null,
+  description: null,
   loading: true,
   error: null
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -16,8 +16,9 @@ import PrivateRoute from './components/routing/PrivateRoute';
 import PublicRoute from './components/routing/PublicRoute';
 import Build from './components/pages/Build/Build';
 
-function App() {
+import {getManaSymbols} from './actions/symbolActions';
 
+function App() {
   return (
     <Provider store={store}>
       <Router>

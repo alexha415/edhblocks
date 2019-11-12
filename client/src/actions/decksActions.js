@@ -32,11 +32,13 @@ export const getDecks = () => async dispatch => {
 }
 
 export const addDeck = (deck) => async dispatch => {
-  const {commander, cards, colorId} = deck;
+  const {commander, cards, colorId, name, description} = deck;
   const newDeck = {
     commander,
     cards,
-    colorId
+    colorId,
+    name,
+    description
   }
   try {    
 

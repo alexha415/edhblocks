@@ -1,4 +1,4 @@
-import React,{useState, Fragment} from 'react'
+import React,{useState, Fragment, useRef} from 'react'
 import {connect} from 'react-redux';
 import {searchCommander} from '../../../actions/searchActions';
 import Checkbox from './checkbox/Checkbox';
@@ -9,6 +9,13 @@ const SearchCommander = ({searchCommander}) => {
   const [text, setText] = useState('');
   const [colors] = useState({});
 
+  const whiteCheckbox = useRef(null);
+  const blueCheckbox = useRef(null);
+  const blackCheckbox = useRef(null);
+  const redCheckbox = useRef(null);
+  const greenCheckbox = useRef(null);
+  const colorlessCheckbox = useRef(null);
+
   const setColor = (color, checked) => {
     if(checked){
       colors[color] = '';
@@ -16,6 +23,7 @@ const SearchCommander = ({searchCommander}) => {
       delete colors[color]
     }
   }
+  
   const sendTextToParent = (text) => {
     setText(text);
   }
@@ -42,12 +50,12 @@ const SearchCommander = ({searchCommander}) => {
       <form className='searchForm' onSubmit={onSubmit}>
       <h4>Pick Your Commander</h4>
         <div className="flex-row checkbox-container">
-          <Checkbox name='White' color='W' setColor={setColor}/>
-          <Checkbox name='Blue' color='U' setColor={setColor}/>
-          <Checkbox name='Black' color='B' setColor={setColor}/>
-          <Checkbox name='Red' color='R' setColor={setColor}/>
-          <Checkbox name='Green' color='G' setColor={setColor}/>
-          <Checkbox name='Colorless' color='C' setColor={setColor}/>
+          <Checkbox ref={whiteCheckbox} name='White' color='W' setColor={setColor} uncheck={false}/>
+          <Checkbox ref={blueCheckbox} name='Blue' color='U' setColor={setColor} uncheck={false}/>
+          <Checkbox ref={blackCheckbox} name='Black' color='B' setColor={setColor} uncheck={false}/>
+          <Checkbox ref={redCheckbox} name='Red' color='R' setColor={setColor} uncheck={false}/>
+          <Checkbox ref={greenCheckbox} name='Green' color='G' setColor={setColor} uncheck={false}/>
+          <Checkbox ref={colorlessCheckbox} name='Colorless' color='C' setColor={setColor} uncheck={false}/>
         </div>
         <Searchbar send={sendTextToParent} submit={onSubmit}/>
       </form>
